@@ -1,0 +1,20 @@
+.orange{
+    background-color:#FF851B;
+}
+
+.blue{
+    background-color:#0074D9;
+}
+
+.green{
+    background-color: #2ECC40;
+}
+
+.icon{
+    color:#fff;
+    font-size: 30px;
+    height:30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
