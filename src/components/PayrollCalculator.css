@@ -1,0 +1,49 @@
+.payroll-calculator-container{
+    min-width: 580px;
+}
+
+.input-group-text{
+    background-color: #45c1a5;
+    border: solid 2px #45c1a5;
+    color:#fff;
+    height:40px;
+}
+
+.payroll-vars-container .form-control{
+    border: solid 2px #45c1a5;
+    height:40px;
+}
+
+.btn-radio{
+    font-weight:bold;
+}
+
+.highlight-white{
+    background-color: #fff;
+    color:#45c1a5;
+    border:solid 0.125rem #45c1a5;
+}
+
+.highlight-torquise{
+    background-color: #45c1a5;
+    border: solid 2px #45c1a5;
+    color:#fff;
+}
+
+.border-torquise{
+    border:solid 2px #45c1a5 !important;
+}
+
+.highlight-total-pay{
+    background-color: #fff;
+    color:#45c1a5;
+    font-weight: bold;
+}
+
+th, td{
+    border:none !important;
+}
+
+.last-row{
+    background-color:#45c1a5;
+}

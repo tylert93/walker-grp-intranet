@@ -6,7 +6,7 @@ class ContractDeal extends React.Component {
         return (
             <div>
                 <Header />
-                <iframe title="Contract Deal" src="https://docs.google.com/forms/d/e/1FAIpQLSd51KaCJ5_tf4gMp3RiATqYtvoYlYIqmaKbwoGQsnONcaCTgA/viewform?embedded=true" width="640" height="2481" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe title="Contract Deal" src="https://docs.google.com/forms/d/e/1FAIpQLSd51KaCJ5_tf4gMp3RiATqYtvoYlYIqmaKbwoGQsnONcaCTgA/viewform?embedded=true" width="100%" height="2481" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
            
         )

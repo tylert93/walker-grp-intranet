@@ -1,5 +1,5 @@
 import React from 'react';
-import './app.css'
+import './PayrollCalculator.css';
 
 class PayrollParameter extends React.Component {
 
@@ -107,7 +107,7 @@ class PayrollParameter extends React.Component {
        return (this.calcBelowUELHourly() * this.props.hours * (1 + (28/232))) +
         (this.props.pension === true ? Math.min(this.calcBelowUELERPen(), this.calcAboveUELERPen()) : 0) +
         (this.whatMethod() === 'No Pension' ? this.calcNoPensionERNI() :
-        this.whatMethod() === 'Below UEL' ? this/this.calcAboveUELERNI() :
+        this.whatMethod() === 'Below UEL' ? this.calcAboveUELERNI() :
         this.calcAboveUELERNI())
     }
 
@@ -119,133 +119,226 @@ class PayrollParameter extends React.Component {
         return (
             
             <div>
-            
-            <div className="parameter-grid">
 
-                <div className="grid-row">
-                    <div className="grid-box"></div>
-                    <div className="grid-box">No Pension</div>
-                    <div className="grid-box">Below UEL</div>
-                    <div className="grid-box">Above UEL</div>
-                </div>
-                <div className="grid-row">
-                    <div className="grid-box">
-                        Available Pay
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcNoPensionAvailablePay()).toFixed(2)}
-                    </div>    
-                    <div className="grid-box">
-                        £{(this.calcBelowUELAvailablePay()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAboveUELAvailablePay()).toFixed(2)}
-                    </div>
-                </div>
-                <div className="grid-row">
-                    <div className="grid-box">ER's NI</div>
-                    <div className="grid-box">
-                        £{(this.calcNoPensionERNI()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcBelowUELERNI()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAboveUELERNI()).toFixed(2)}
-                    </div>
-                </div>
-                <div className="grid-row">
-                    <div className="grid-box">ER's Pen</div>
-                    <div className="grid-box">
-                        £{(0).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcBelowUELERPen()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAboveUELERPen()).toFixed(2)}
-                    </div>
-                </div>
-                <div className="grid-row">
-                    <div className="grid-box">Check</div>
-                    <div className="grid-box">
-                        £{(this.calcNoPensionCheck()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcBelowUELCheck()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAboveUELCheck()).toFixed(2)}
-                    </div>
-                </div>
-                <div className="grid-row">
-                    <div className="grid-box">Split Out Holiday</div>
-                    <div className="grid-box">
-                        £{(this.calcNoPensionSplitOutHoliday()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcBelowUELSplitOutHoliday()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAboveUELSplitOutHoliday()).toFixed(2)}
-                    </div>
-                </div>
-                <div className="grid-row">
-                    <div className="grid-box">Total Pay</div>
-                    <div className="grid-box">
-                        £{(this.calcNoPensionTotalPay()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcBelowUELTotalPay()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAboveUELTotalPay()).toFixed(2)}
-                    </div>
-                </div>
-                <div className="grid-row">
-                    <div className="grid-box">Hourly</div>
-                    <div className="grid-box">
-                        £{(this.calcNoPensionHourly()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcBelowUELHourly()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAboveUELHourly()).toFixed(2)}
-                    </div>
-                </div>
-                
-            </div>
+                <div className="row d-flex justify-content-center my-5">
 
-            <div className="parameter-grid">
+                    <div className="col-12 col-lg-8">
 
-                <div className="grid-row">
-                    <div className="grid-box">WGP Fee</div>
-                    <div className="grid-box">Available Fee</div>
-                    <div className="grid-box">WGP Cost</div>
-                    <div className="grid-box">Add' WGP Income</div>
-                    <div className="grid-box">Method</div>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col" className="text-center">No Pension</th>
+                                    <th scope="col" className="text-center">Below UEL</th>
+                                    <th scope="col" className="text-center">Above UEL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" className="text-center">
+                                        <div className="py-2">
+                                            Available Pay
+                                        </div>
+                                    </th>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'No Pension' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcNoPensionAvailablePay()).toFixed(2)}
+                                        </div>
+                                        
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Below UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcBelowUELAvailablePay()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Above UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcAboveUELAvailablePay()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" className="text-center">
+                                        <div className="py-2">
+                                            ER's NI
+                                        </div>
+                                    </th>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'No Pension' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcNoPensionERNI()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Below UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcBelowUELERNI()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Above UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcAboveUELERNI()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" className="text-center">
+                                        <div className="py-2">
+                                            ER's Pen
+                                        </div>
+                                    </th>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'No Pension' ? 'highlight-torquise' : ''}`}>
+                                            £{(0).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Below UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcBelowUELERPen()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Above UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcAboveUELERPen()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" className="text-center">
+                                        <div className="py-2">
+                                            Check
+                                        </div>
+                                    </th>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'No Pension' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcNoPensionCheck()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Below UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcBelowUELCheck()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Above UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcAboveUELCheck()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" className="text-center">
+                                        <div className="py-2">
+                                            Split Out Holiday
+                                        </div>
+                                    </th>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'No Pension' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcNoPensionSplitOutHoliday()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Below UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcBelowUELSplitOutHoliday()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Above UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcAboveUELSplitOutHoliday()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" className="text-center">
+                                        <div className="py-2">
+                                            Hourly
+                                        </div>
+                                    </th>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'No Pension' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcNoPensionHourly()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Below UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcBelowUELHourly()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Above UEL' ? 'highlight-torquise' : ''}`}>
+                                            £{(this.calcAboveUELHourly()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr className="last-row">
+                                    <th scope="row" className="text-center">
+                                        <div className="text-white py-2">
+                                            Total Pay
+                                        </div>
+                                    </th>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'No Pension' ? 'highlight-total-pay' : 'text-white'}`}>
+                                            £{(this.calcNoPensionTotalPay()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Below UEL' ? 'highlight-total-pay' : 'text-white'}`}>
+                                            £{(this.calcBelowUELTotalPay()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className={`rounded-pill border p-2 border-torquise ${this.whatMethod() === 'Above UEL' ? 'highlight-total-pay' : 'text-white'}`}>
+                                            £{(this.calcAboveUELTotalPay()).toFixed(2)}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
                 </div>
 
-                <div className="grid-row">
-                    <div className="grid-box">
-                        £{(this.props.wgpFee).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAvailableFee()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcWGPCost()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        £{(this.calcAdditionalWgpIncome()).toFixed(2)}
-                    </div>
-                    <div className="grid-box">
-                        {this.whatMethod()}
-                    </div>
-                </div>
+                <div className="row d-flex justify-content-center my-5">
 
-            </div>
+                    <div className="col-12 col-lg-8">
+
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" className="text-center">WGP Fee</th>
+                                    <th scope="col" className="text-center">Available Fee</th>
+                                    <th scope="col" className="text-center">WGP Cost</th>
+                                    <th scope="col" className="text-center">WGP Additonal Income</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="text-center">
+                                        <div className="rounded-pill border p-2 border-torquise highlight-torquise">
+                                            £{(this.props.wgpFee).toFixed(2)}
+                                        </div>
+                                    </td>
+                                    <td className="text-center">
+                                        <div className="rounded-pill border p-2 border-torquise highlight-torquise">
+                                            £{(this.calcAvailableFee()).toFixed(2)}
+                                        </div>
+                                        
+                                    </td>
+                                    <td className="text-center">
+                                        <div className="rounded-pill border p-2 border-torquise highlight-torquise">
+                                            £{(this.calcWGPCost()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                    <td className="text-center">
+                                        <div className="rounded-pill border p-2 border-torquise highlight-torquise">
+                                            £{(this.calcAdditionalWgpIncome()).toFixed(2)}
+                                        </div>    
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
 
             </div>
              

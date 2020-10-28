@@ -5,7 +5,7 @@ import Logo from '../images/walker-grp-ltd-logo-light.svg';
 class Header extends React.Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
                 <Link className="navbar-brand" to="/">
                     <img src={Logo} width="125" alt="Walker Group Logo"></img>
                 </Link>
@@ -20,7 +20,7 @@ class Header extends React.Component {
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Training
                             </a>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a className="dropdown-item" href="/">Option 1</a>

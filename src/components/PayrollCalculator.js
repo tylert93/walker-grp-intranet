@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './header';
 import PayrollVars from './PayrollVars';
 import PayrollParameter from './PayrollParameter';
+import './PayrollCalculator.css';
 
 class PayrollCalculator extends React.Component {
 
@@ -16,10 +17,10 @@ class PayrollCalculator extends React.Component {
         let queryPension = urlParams.get('pension');
 
         if( Number.isNaN(queryRate) || (queryRate < 0 && queryRate > 2000)  ) {
-            queryRate = 50;
+            queryRate = 20;
         }
         if( Number.isNaN(queryHours) || (queryHours < 0 || queryHours > 2000)  ) {
-            queryHours = 28;
+            queryHours = 37.5;
         }
         if(queryPension === 'yes'){
             queryPension = true;
@@ -31,8 +32,8 @@ class PayrollCalculator extends React.Component {
 
 
         this.state = {
-            rate: queryRate ? queryRate : 50,
-            hours: queryHours ? queryHours : 28,
+            rate: queryRate ? queryRate : 20,
+            hours: queryHours ? queryHours : 37.5,
             pension: queryPension
         }
     }
@@ -51,29 +52,33 @@ class PayrollCalculator extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="payroll-calculator-container">
                 <Header />
                 
-                <PayrollVars 
-                    hours={this.state.hours} 
-                    rate={this.state.rate}
-                    pension={this.state.pension}
-                    changeHours={this.onChangeHours}  
-                    changeRate={this.onChangeRate}
-                    changePension={this.onChangePension}
-                />
+                <div className="container">
 
-                <PayrollParameter
-                    hours={this.state.hours}
-                    rate={this.state.rate}
-                    pension={this.state.pension}
-                    wgpFee={20}
-                    LEL={120}
-                    ST={169}
-                    UEL={962}
-                    NLW={8.72}
-                />
-                
+                    <PayrollVars 
+                        hours={this.state.hours} 
+                        rate={this.state.rate}
+                        pension={this.state.pension}
+                        changeHours={this.onChangeHours}  
+                        changeRate={this.onChangeRate}
+                        changePension={this.onChangePension}
+                    />
+
+                    <PayrollParameter
+                        hours={this.state.hours}
+                        rate={this.state.rate}
+                        pension={this.state.pension}
+                        wgpFee={20}
+                        LEL={120}
+                        ST={169}
+                        UEL={962}
+                        NLW={8.72}
+                    />
+
+                </div>
+ 
             </div>
         )
     }
