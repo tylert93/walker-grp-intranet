@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../../partials/Header';
 import ToolIcon from './ToolIcon';
-import '@fortawesome/fontawesome-free/js/all.js';
 
 class Tools extends React.Component {
     render() {

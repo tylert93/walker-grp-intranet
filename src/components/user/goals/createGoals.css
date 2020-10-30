@@ -1,0 +1,7 @@
+.form-container{
+    max-width: 500px !important;
+}
+
+textarea{
+    height:100px !important;
+}

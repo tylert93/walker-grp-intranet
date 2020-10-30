@@ -8,7 +8,9 @@ import ToolsIndex from './tools/ToolsIndex/ToolsIndex';
 import PayrollCalculator from './tools/PayrollCalculator/PayrollCalculator';
 import PermDeal from './tools/PermDeal';
 import ContractDeal from './tools/ContractDeal';
-import Goals from './user/Goals/Goals';
+import GoalIndex from './user/goals/goalIndex/GoalIndexs';
+import CreateGoals from './user/goals/CreateGoals';
+import UpdateGoal from './user/goals/UpdateGoal';
 import Tasks from './user/Tasks';
 import Settings from './user/Settings';
 
@@ -19,12 +21,14 @@ import 'popper.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props)
+import '@fortawesome/fontawesome-free/js/all.js';
 
-        this.state = {
-            test: 3
+class App extends React.Component {
+   
+    state = {
+        currentUser: {
+            username:'tom.tyler@walkergrp.co.uk',
+            name: 'Tom Tyler'
         }
     }
 
@@ -38,7 +42,9 @@ class App extends React.Component {
                 <PermDeal path="/tools/permanent-deal" />
                 <ContractDeal path="/tools/contract-deal" />
                 <Tasks path="/username/tasks" />
-                <Goals path="/username/goals" />
+                <GoalIndex path="/username/goals" />
+                <CreateGoals path="/username/goals/create" username={this.state.currentUser.username}/>
+                <UpdateGoal path="/username/goals/:id/update" />
                 <Settings path="/username/settings" />
             </Router>   
         )

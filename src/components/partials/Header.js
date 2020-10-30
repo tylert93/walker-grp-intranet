@@ -45,17 +45,19 @@ class Header extends React.Component {
                                     </span>
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <Link className="dropdown-item" to="/username/tasks">
+                                    <Link className="dropdown-item py-0  pl-2" to="/username/tasks">
+                                        <i className="fas fa-thumbtack mr-2 text-muted"></i>
                                         Tasks
-                                        <i className="fas fa-thumbtack ml-2 text-muted"></i>
                                     </Link>
-                                    <Link className="dropdown-item" to="/username/goals">
+                                    <div className="dropdown-divider"></div>
+                                    <Link className="dropdown-item py-0  pl-2" to="/username/goals">
+                                        <i className="fas fa-bullseye mr-2 text-muted"></i>
                                         Goals
-                                        <i className="fas fa-bullseye ml-2 text-muted"></i>
                                     </Link>
-                                    <Link className="dropdown-item" to="/username/settings">
+                                    <div className="dropdown-divider"></div>
+                                    <Link className="dropdown-item py-0 pl-2" to="/username/settings">
+                                    <i className="fas fa-cog mr-2 text-muted"></i>
                                         Settings
-                                        <i className="fas fa-cog ml-2 text-muted"></i>
                                     </Link>
                                 </div>
                             </li>                            
