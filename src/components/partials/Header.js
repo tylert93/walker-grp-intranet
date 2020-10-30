@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from '@reach/router';
-import Logo from '../images/walker-grp-ltd-logo-light.svg';
+import Logo from '../../images/walker-grp-ltd-logo-light.svg';
 
 class Header extends React.Component {
     render() {

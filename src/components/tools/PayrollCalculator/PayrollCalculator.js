@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header';
+import Header from '../../partials/Header';
 import PayrollVars from './PayrollVars';
 import PayrollParameter from './PayrollParameter';
 import './PayrollCalculator.css';

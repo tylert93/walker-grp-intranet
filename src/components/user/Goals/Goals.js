@@ -1,6 +1,6 @@
 import React from 'react';
-import {db} from '../services/firebase';
-import Header from './header';
+import {db} from '../../../services/firebase';
+import Header from '../../partials/Header';
 import GoalCard from './GoalCard';
 import './goals.css';
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Router} from "@reach/router";
-import Home from './home';
-import Tools from './Tools';
-import PayrollCalculator from './PayrollCalculator';
-import PermDeal from './PermDeal';
-import ContractDeal from './ContractDeal';
-import Goals from './Goals';
-import Tasks from './Tasks';
-import Settings from './Settings';
+import Home from './Home';
+import ToolsIndex from './tools/ToolsIndex/ToolsIndex';
+import PayrollCalculator from './tools/PayrollCalculator/PayrollCalculator';
+import PermDeal from './tools/PermDeal';
+import ContractDeal from './tools/ContractDeal';
+import Goals from './user/Goals/Goals';
+import Tasks from './user/Tasks';
+import Settings from './user/Settings';
 
 class App extends React.Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class App extends React.Component {
         return (
             <Router>
                 <Home path="/" />
-                <Tools path="/tools" />
+                <ToolsIndex path="/tools" />
                 <PayrollCalculator path="/tools/payroll-calculator" />
                 <PermDeal path="/tools/permanent-deal" />
                 <ContractDeal path="/tools/contract-deal" />

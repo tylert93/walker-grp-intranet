@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header';
+import Header from '../../partials/Header';
 import ToolIcon from './ToolIcon';
 import '@fortawesome/fontawesome-free/js/all.js';
 

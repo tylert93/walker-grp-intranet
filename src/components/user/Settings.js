@@ -1,4 +1,4 @@
-import Header from './header';
+import Header from '../partials/Header';
 
 const Settings = () => {
     return (

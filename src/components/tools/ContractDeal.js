@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header';
+import Header from '../partials/Header';
 
 class ContractDeal extends React.Component {
     render() {
