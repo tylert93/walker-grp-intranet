@@ -1,4 +1,7 @@
+// Import React
 import React from 'react';
+
+// Import components
 import { Router} from "@reach/router";
 import Home from './Home';
 import ToolsIndex from './tools/ToolsIndex/ToolsIndex';
@@ -8,6 +11,13 @@ import ContractDeal from './tools/ContractDeal';
 import Goals from './user/Goals/Goals';
 import Tasks from './user/Tasks';
 import Settings from './user/Settings';
+
+// Import Bootstrap
+// eslint-disable-next-line
+import $ from 'jquery';
+import 'popper.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min';
 
 class App extends React.Component {
     constructor(props) {
