@@ -5,7 +5,7 @@ import Logo from '../images/walker-grp-ltd-logo-light.svg';
 class Header extends React.Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5 px-5">
                 <Link className="navbar-brand" to="/">
                     <img src={Logo} width="125" alt="Walker Group Logo"></img>
                 </Link>
@@ -29,10 +29,38 @@ class Header extends React.Component {
                             </div>
                         </li>
                     </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                    
+
+        
+                        <ul className="nav navbar-nav navbar-right">
+                            <form className="form-inline my-2 my-lg-0 mr-4">
+                                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+                                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span>
+                                        <i className="fas fa-user-circle fa-2x mr-2"></i>
+                                        Username
+                                    </span>
+                                </a>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <Link className="dropdown-item" to="/username/tasks">
+                                        Tasks
+                                        <i className="fas fa-thumbtack ml-2 text-muted"></i>
+                                    </Link>
+                                    <Link className="dropdown-item" to="/username/goals">
+                                        Goals
+                                        <i className="fas fa-bullseye ml-2 text-muted"></i>
+                                    </Link>
+                                    <Link className="dropdown-item" to="/username/settings">
+                                        Settings
+                                        <i className="fas fa-cog ml-2 text-muted"></i>
+                                    </Link>
+                                </div>
+                            </li>                            
+                        </ul>
+                
                 </div>
             </nav>
         )
