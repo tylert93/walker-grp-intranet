@@ -42,8 +42,8 @@ class GoalIndex extends React.Component {
                         <h3>Goals</h3>
                         <Link to="/username/goals/create">
                             <button type="button" className="btn btn-success">
+                                <i className="fas fa-plus mr-2"></i>
                                 Set goals 
-                                <i className="fas fa-plus ml-2"></i>
                             </button>
                         </Link>
                     </div>

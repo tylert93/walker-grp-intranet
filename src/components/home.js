@@ -5,7 +5,7 @@ import Footer from './partials/Footer';
 class Home extends React.Component {
     render() {
         return (
-            <div className="vh-100">
+            <div className="view-container">
                 <Header />
                 <div className="container mt-5">
                     <h3 className="text-center">Welcome to the Walker Group Intranet</h3>

@@ -4,6 +4,10 @@
     direction: rtl !important;
     /* the hidden clearer */
 }
+
+.grey{
+    color:#676767;
+}
   
 .fa-star:hover {
     cursor: pointer;

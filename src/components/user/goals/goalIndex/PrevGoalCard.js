@@ -15,13 +15,13 @@ class PrevGoalCard extends React.Component {
                                     <span className="fa fa-star text-warning"></span>   
                                 ))
                             }   
-                            <small className="ml-3">{this.props.rating}/10</small>
+                            <small className="ml-3">{this.props.rating}/5</small>
                         </h6>
                         
                     </div>
                     <div className="card-body border-top">
                         <strong>Employee's Comments:</strong>
-                        <div>"{this.props.comments.author}"</div>
+                        <div>"{this.props.comments.employee}"</div>
                         <br/>
                         <strong>Supervisor's Comments:</strong>
                         <div>"{this.props.comments.supervisor}"</div>     
