@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../../partials/Header';
+import Footer from '../../partials/Footer';
 import PayrollVars from './PayrollVars';
 import PayrollParameter from './PayrollParameter';
 import './PayrollCalculator.css';
@@ -46,13 +47,18 @@ class PayrollCalculator extends React.Component {
         this.setState({rate: value});
     }
 
-    onChangePension = () => {
-        this.setState({pension: !(this.state.pension)});
+    onChangePensionYes = () => {
+        this.setState({pension: true});
+    }
+
+    onChangePensionNo = () => {
+        this.setState({pension: false});
     }
 
     render() {
         return(
-            <div className="payroll-calculator-container">
+            <div className="payroll-calculator-container view-container">
+
                 <Header />
                 
                 <div className="container">
@@ -63,7 +69,8 @@ class PayrollCalculator extends React.Component {
                         pension={this.state.pension}
                         changeHours={this.onChangeHours}  
                         changeRate={this.onChangeRate}
-                        changePension={this.onChangePension}
+                        changePensionYes={this.onChangePensionYes}
+                        changePensionNo={this.onChangePensionNo}
                     />
 
                     <PayrollParameter
@@ -78,6 +85,8 @@ class PayrollCalculator extends React.Component {
                     />
 
                 </div>
+
+                <Footer />
  
             </div>
         )

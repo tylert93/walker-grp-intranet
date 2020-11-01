@@ -14,6 +14,8 @@ import UpdateGoal from './user/goals/UpdateGoal';
 import Tasks from './user/Tasks';
 import Settings from './user/Settings';
 
+import './app.css';
+
 // Import Bootstrap
 // eslint-disable-next-line
 import $ from 'jquery';

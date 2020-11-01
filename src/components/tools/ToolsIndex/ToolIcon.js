@@ -7,8 +7,8 @@ class ToolIcon extends React.Component {
         return (
             <div className="col-2">
                 <div className="d-flex justify-content-center">
-                    <Link className="d-block" to={this.props.to}>
-                        <div className={`rounded-circle p-4 ${this.props.colour}`}> 
+                    <Link className="d-block hvr-float" to={this.props.to}>
+                        <div className={`rounded-circle hvr-shadow p-4 ${this.props.colour}`}> 
                             <i className={`icon fa-fw ${this.props.iconName}`} alt={this.props.Alt} ></i>
                         </div>
                     </Link>

@@ -1,0 +1,18 @@
+.rating {
+    /* flip the order so we can use the + and ~ combinators */
+    unicode-bidi: bidi-override !important;
+    direction: rtl !important;
+    /* the hidden clearer */
+}
+  
+.fa-star:hover {
+    cursor: pointer;
+}
+  
+.fa-star:hover, .fa-star:hover ~ .fa-star, .fas {
+    color: #ffd500;
+}
+
+.gold{
+    color: #ffd500;
+}

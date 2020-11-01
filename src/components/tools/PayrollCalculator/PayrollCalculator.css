@@ -2,7 +2,7 @@
     min-width: 580px;
 }
 
-.input-group-text{
+.payroll-vars-container .input-group-text{
     background-color: #45c1a5;
     border: solid 2px #45c1a5;
     color:#fff;
@@ -18,20 +18,30 @@
     font-weight:bold;
 }
 
-.highlight-white{
+.payroll-vars-container .highlight-white, .payroll-parameters-container .highlight-white{
     background-color: #fff;
     color:#45c1a5;
     border:solid 0.125rem #45c1a5;
 }
 
-.highlight-torquise{
+.payroll-vars-container .highlight-white:hover{
     background-color: #45c1a5;
     border: solid 2px #45c1a5;
     color:#fff;
 }
 
+.payroll-vars-container .highlight-torquise, .payroll-parameters-container .highlight-torquise{
+    background-color: #45c1a5;
+    border: solid 2px #45c1a5;
+    color:#fff;
+}
+
+.payroll-vars-container .highlight-torquise:hover{
+    color:#fff;
+}
+
 .border-torquise{
-    border:solid 2px #45c1a5 !important;
+    border:solid 2px #45c1a5;
 }
 
 .highlight-total-pay{

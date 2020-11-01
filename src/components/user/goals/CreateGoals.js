@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from '@reach/router';
 import {db} from '../../../services/firebase';
 import Header from '../../partials/Header';
+import Footer from '../../partials/Footer';
 import './createGoals.css';
 
 class CreateGoals extends React.Component{
@@ -67,7 +68,8 @@ class CreateGoals extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className="view-container">
+
                 <Header />
 
                 <div className="container">
@@ -99,6 +101,9 @@ class CreateGoals extends React.Component{
                     </div>
 
                 </div>
+
+                <Footer />
+
             </div>
         )
     }

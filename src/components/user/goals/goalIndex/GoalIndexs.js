@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from '@reach/router';
 import {db} from '../../../../services/firebase';
 import Header from '../../../partials/Header';
+import Footer from '../../../partials/Footer';
 import PrevGoalCard from './PrevGoalCard';
 import CurrGoalCard from './CurrGoalCard';
 import './goals.css';
@@ -31,8 +32,10 @@ class GoalIndex extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="view-container">
+
                 <Header />
+
                 <div className="container">
 
                     <div className="d-flex justify-content-between">
@@ -46,8 +49,8 @@ class GoalIndex extends React.Component {
                     </div>
 
                     <div className="card mt-5">
-                        <div className="card-body bg-light">
-                            <h5 className="m-0">Current</h5>
+                        <div className="card-body bg-blue text-white">
+                            <h5 className="text-shadow m-0">Current</h5>
                         </div>
                         <div className="card-body">
                             <div className="row d-flex justify-content-start">
@@ -71,8 +74,8 @@ class GoalIndex extends React.Component {
                     </div>
                     
                     <div className="card mt-5">
-                        <div className="card-body bg-light">
-                            <h5 className="m-0">Previous</h5>
+                        <div className="card-body bg-purple text-white">
+                            <h5 className="text-shadow m-0">Previous</h5>
                         </div>
                         <div className="card-body">
                             <div className="row d-flex justify-content-start">
@@ -97,6 +100,9 @@ class GoalIndex extends React.Component {
                     </div>
 
                 </div>
+
+                <Footer />
+
             </div>
         )
     }

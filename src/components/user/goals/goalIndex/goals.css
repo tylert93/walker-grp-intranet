@@ -1,3 +1,15 @@
 .box-shadow{
-    box-shadow: 2px 2px 3px;
+    box-shadow: 1px 1px 2px;
+}
+
+.bg-purple{
+    background-color: #c864c5;
+}
+
+.bg-blue{
+    background-color: #62c6dd;
+}
+
+.text-shadow{
+    text-shadow: 1px 1px 2px #3e3e3e;
 }

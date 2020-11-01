@@ -76,14 +76,14 @@ class PayrollVars extends React.Component {
                                     <button 
                                         type="button" 
                                         class={`btn btn-radio ${this.props.pension ? 'highlight-torquise' : 'highlight-white'}`} 
-                                        onClick={e => {this.props.changePension()}}>
+                                        onClick={e => {this.props.changePensionYes()}}>
                                             YES
                                     </button>
 
                                     <button 
                                         type="button" 
                                         class={`btn btn-radio highlight-white ${this.props.pension ? 'highlight-white' : 'highlight-torquise'}`}
-                                        onClick={e => {this.props.changePension()}}>
+                                        onClick={e => {this.props.changePensionNo()}}>
                                             NO
                                     </button>
                                 </div>
