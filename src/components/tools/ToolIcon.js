@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from '@reach/router';
-import './ToolIcon.css';
 
 class ToolIcon extends React.Component {
     render() {

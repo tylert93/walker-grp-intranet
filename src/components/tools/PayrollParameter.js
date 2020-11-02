@@ -1,5 +1,4 @@
 import React from 'react';
-import './PayrollCalculator.css';
 
 class PayrollParameter extends React.Component {
 

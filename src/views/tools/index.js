@@ -1,7 +1,8 @@
 import React from 'react';
-import Header from '../../partials/Header';
-import Footer from '../../partials/Footer';
-import ToolIcon from './ToolIcon';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
+import ToolIcon from '../../components/tools/ToolIcon';
+import '../../css/tools/index.css';
 
 class Tools extends React.Component {
     render() {

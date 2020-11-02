@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link} from '@reach/router';
-import {db} from '../../../../services/firebase';
-import Header from '../../../partials/Header';
-import Footer from '../../../partials/Footer';
-import PrevGoalCard from './PrevGoalCard';
-import CurrGoalCard from './CurrGoalCard';
-import './goals.css';
+import {db} from '../../services/firebase';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
+import PrevGoalCard from '../../components/goals/PrevGoalCard';
+import CurrGoalCard from '../../components/goals/CurrGoalCard';
+import '../../css/goals/index.css';
 
 class GoalIndex extends React.Component {
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from '@reach/router';
-import {db} from '../../../services/firebase';
-import Header from '../../partials/Header';
-import Footer from '../../partials/Footer';
-import './createGoals.css';
+import {db} from '../../services/firebase';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
+import '../../css/goals/create.css';
 
 class CreateGoals extends React.Component{
 

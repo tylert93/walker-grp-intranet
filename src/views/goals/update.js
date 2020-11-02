@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../../partials/Header';
-import Footer from '../../partials/Footer';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
 import {Link} from '@reach/router';
-import {db} from '../../../services/firebase';
-import './updateGoal.css';
+import {db} from '../../services/firebase';
+import '../../css/goals/update.css';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar as emptyStar} from '@fortawesome/free-regular-svg-icons';

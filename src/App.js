@@ -3,18 +3,18 @@ import React from 'react';
 
 // Import components
 import { Router} from "@reach/router";
-import Home from './Home';
-import ToolsIndex from './tools/ToolsIndex/ToolsIndex';
-import PayrollCalculator from './tools/PayrollCalculator/PayrollCalculator';
-import PermDeal from './tools/PermDeal';
-import ContractDeal from './tools/ContractDeal';
-import GoalIndex from './user/goals/goalIndex/GoalIndexs';
-import CreateGoals from './user/goals/CreateGoals';
-import UpdateGoal from './user/goals/UpdateGoal';
-import Tasks from './user/Tasks';
-import Settings from './user/Settings';
+import Home from './views/Home';
+import Tools from './views/tools/index';
+import PayrollCalculator from './views/tools/PayrollCalculator';
+import PermDeal from './views/tools/PermDeal';
+import ContractDeal from './views/tools/ContractDeal';
+import GoalIndex from './views/goals/index';
+import GoalCreate from './views/goals/create';
+import GoalUpdate from './views/goals/update';
+import Tasks from './views/Tasks';
+import Settings from './views/Settings';
 
-import './app.css';
+import './css/app.css';
 
 // Import Bootstrap
 // eslint-disable-next-line
@@ -39,14 +39,14 @@ class App extends React.Component {
         return (
             <Router>
                 <Home path="/" />
-                <ToolsIndex path="/tools" />
+                <Tools path="/tools" />
                 <PayrollCalculator path="/tools/payroll-calculator" />
                 <PermDeal path="/tools/permanent-deal" />
                 <ContractDeal path="/tools/contract-deal" />
-                <Tasks path="/username/tasks" />
                 <GoalIndex path="/username/goals" />
-                <CreateGoals path="/username/goals/create" username={this.state.currentUser.username}/>
-                <UpdateGoal path="/username/goals/:id/update" />
+                <GoalCreate path="/username/goals/create" username={this.state.currentUser.username}/>
+                <GoalUpdate path="/username/goals/:id/update" />
+                <Tasks path="/username/tasks" />
                 <Settings path="/username/settings" />
             </Router>   
         )

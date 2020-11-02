@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../../partials/Header';
-import Footer from '../../partials/Footer';
-import PayrollVars from './PayrollVars';
-import PayrollParameter from './PayrollParameter';
-import './PayrollCalculator.css';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
+import PayrollVars from '../../components/tools/PayrollVars';
+import PayrollParameter from '../../components/tools/PayrollParameter';
+import '../../css/tools/PayrollCalculator.css';
 
 class PayrollCalculator extends React.Component {
 
