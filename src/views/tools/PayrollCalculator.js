@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from '../partials/Header';
-import Footer from '../partials/Footer';
+import Wrapper from '../partials/Wrapper';
 import PayrollVars from '../../components/tools/PayrollVars';
 import PayrollParameter from '../../components/tools/PayrollParameter';
 import '../../css/tools/PayrollCalculator.css';
@@ -57,38 +56,36 @@ class PayrollCalculator extends React.Component {
 
     render() {
         return(
-            <div className="payroll-calculator-container view-container">
+               
+            <Wrapper>
 
-                <Header />
-                
-                <div className="container">
+                <div className="container payroll-calculator-container">
 
-                    <PayrollVars 
-                        hours={this.state.hours} 
-                        rate={this.state.rate}
-                        pension={this.state.pension}
-                        changeHours={this.onChangeHours}  
-                        changeRate={this.onChangeRate}
-                        changePensionYes={this.onChangePensionYes}
-                        changePensionNo={this.onChangePensionNo}
-                    />
+                <PayrollVars 
+                    hours={this.state.hours} 
+                    rate={this.state.rate}
+                    pension={this.state.pension}
+                    changeHours={this.onChangeHours}  
+                    changeRate={this.onChangeRate}
+                    changePensionYes={this.onChangePensionYes}
+                    changePensionNo={this.onChangePensionNo}
+                />
 
-                    <PayrollParameter
-                        hours={this.state.hours}
-                        rate={this.state.rate}
-                        pension={this.state.pension}
-                        wgpFee={20}
-                        LEL={120}
-                        ST={169}
-                        UEL={962}
-                        NLW={8.72}
-                    />
+                <PayrollParameter
+                    hours={this.state.hours}
+                    rate={this.state.rate}
+                    pension={this.state.pension}
+                    wgpFee={20}
+                    LEL={120}
+                    ST={169}
+                    UEL={962}
+                    NLW={8.72}
+                />
 
                 </div>
 
-                <Footer />
- 
-            </div>
+            </Wrapper>
+
         )
     }
 }

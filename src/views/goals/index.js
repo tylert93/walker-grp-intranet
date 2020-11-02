@@ -1,8 +1,7 @@
 import React from 'react';
 import {Link} from '@reach/router';
 import {db} from '../../services/firebase';
-import Header from '../partials/Header';
-import Footer from '../partials/Footer';
+import Wrapper from '../partials/Wrapper';
 import PrevGoalCard from '../../components/goals/PrevGoalCard';
 import CurrGoalCard from '../../components/goals/CurrGoalCard';
 import '../../css/goals/index.css';
@@ -32,9 +31,8 @@ class GoalIndex extends React.Component {
     
     render() {
         return (
-            <div className="view-container">
 
-                <Header />
+            <Wrapper>
 
                 <div className="container">
 
@@ -72,7 +70,7 @@ class GoalIndex extends React.Component {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="card mt-5">
                         <div className="card-body bg-purple text-white">
                             <h5 className="text-shadow m-0">Previous</h5>
@@ -101,9 +99,8 @@ class GoalIndex extends React.Component {
 
                 </div>
 
-                <Footer />
+            </Wrapper>
 
-            </div>
         )
     }
     

@@ -37,6 +37,7 @@ class App extends React.Component {
     render() {
 
         return (
+
             <Router>
                 <Home path="/" />
                 <Tools path="/tools" />
@@ -49,6 +50,7 @@ class App extends React.Component {
                 <Tasks path="/username/tasks" />
                 <Settings path="/username/settings" />
             </Router>   
+            
         )
         
     }

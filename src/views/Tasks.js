@@ -1,20 +1,17 @@
 import React from 'react';
-import Header from './partials/Header';
-import Footer from './partials/Footer';
+import Wrapper from './partials/Wrapper';
 
 class Tasks extends React.Component {
 
     render() {
         return (
-            <div className="view-container">
-
-                <Header />
+            
+            <Wrapper>
 
                 <h3 className="text-center">Tasks</h3>
 
-                <Footer />
+            </Wrapper>
 
-            </div>
         )
     }
 

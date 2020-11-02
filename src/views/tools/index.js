@@ -1,19 +1,17 @@
 import React from 'react';
-import Header from '../partials/Header';
-import Footer from '../partials/Footer';
+import Wrapper from '../partials/Wrapper';
 import ToolIcon from '../../components/tools/ToolIcon';
 import '../../css/tools/index.css';
 
 class Tools extends React.Component {
     render() {
         return (
-            <div className="view-container">
 
-                <Header />
+            <Wrapper>
 
                 <div className="container mt-5">
                     <div className="row">
-                        
+                                    
                         <ToolIcon iconName="far fa-handshake" colour="juicy-orange" Alt="Contract Deal" to="/tools/contract-deal" title="Contract Deal"/>
 
                         <ToolIcon iconName="fas fa-user-tag" colour="cool-blues" Alt="Permanent Deal" to="/tools/permanent-deal" title="Permanent Deal" />
@@ -22,11 +20,9 @@ class Tools extends React.Component {
 
                     </div>
                 </div>
-
-                <Footer />
-
-            </div>
            
+            </Wrapper>
+            
         )
     }
 }
