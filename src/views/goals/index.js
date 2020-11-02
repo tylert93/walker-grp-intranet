@@ -38,7 +38,7 @@ class GoalIndex extends React.Component {
 
                     <div className="d-flex justify-content-between">
                         <h3>Goals</h3>
-                        <Link to="/username/goals/create">
+                        <Link to="/username/goals/new">
                             <button type="button" className="btn btn-success">
                                 <i className="fas fa-plus mr-2"></i>
                                 Set goals 
@@ -83,7 +83,8 @@ class GoalIndex extends React.Component {
                                         return(
                                             goal.complete &&
                                             <div className="card-group col-12 col-lg-6 col-xl-4">
-                                                <PrevGoalCard 
+                                                <PrevGoalCard
+                                                    id={goal.id} 
                                                     text={goal.text}
                                                     rating={goal.rating}
                                                     comments={goal.comments} 

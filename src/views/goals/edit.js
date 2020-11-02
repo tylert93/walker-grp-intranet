@@ -19,7 +19,7 @@ class UpdateGoal extends React.Component {
 
     componentDidMount = () => {
 
-        db.collection('goals').doc(this.props.id)
+        db.collection('goals').doc(this.props._id)
         .get()
         .then( snapshot => {
             this.setState({text: snapshot.data().text})

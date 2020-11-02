@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from '@reach/router';
 
 class PrevGoalCard extends React.Component {
     render() {
@@ -21,10 +22,18 @@ class PrevGoalCard extends React.Component {
                     </div>
                     <div className="card-body border-top">
                         <strong>Employee's Comments:</strong>
-                        <div>"{this.props.comments.employee}"</div>
+                        <div>"{this.props.comments.employee.substring(0, 60)} ..."</div>
                         <br/>
                         <strong>Supervisor's Comments:</strong>
-                        <div>"{this.props.comments.supervisor}"</div>     
+                        <div>"{this.props.comments.supervisor.substring(0, 60)} ..."</div>     
+                    </div>
+                    <div className="card-footer bg-white border border-white">
+                        <Link to={`/username/goals/${this.props.id}`}>
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="fas fa-glasses mr-2"></i>
+                                Read more
+                            </button>
+                        </Link>
                     </div>      
                     
                 </div>

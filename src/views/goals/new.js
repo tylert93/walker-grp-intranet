@@ -58,7 +58,7 @@ class CreateGoals extends React.Component{
                 text: this.state.goalThreeText,
                 rating: null,
                 comments: {
-                    author: '',
+                    employee: '',
                     supervisor: ''
                 },
                 complete: false
