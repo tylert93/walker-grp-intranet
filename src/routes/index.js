@@ -1,16 +1,16 @@
 import React from 'react';
 import { Router} from "@reach/router";
-import Home from '../views/Home';
-import Tools from '../views/tools/index';
-import PayrollCalculator from '../views/tools/PayrollCalculator';
-import PermDeal from '../views/tools/PermDeal';
-import ContractDeal from '../views/tools/ContractDeal';
-import GoalIndex from '../views/goals/index';
-import GoalShow from '../views/goals/show';
-import GoalNew from '../views/goals/new';
-import GoalEdit from '../views/goals/edit';
-import Tasks from '../views/Tasks';
-import Settings from '../views/Settings';
+import Home from '../components/views/Home';
+import Tools from '../components/views/tools/index';
+import PayrollCalculator from '../components/views/tools/PayrollCalculator';
+import PermDeal from '../components/views/tools/PermDeal';
+import ContractDeal from '../components/views/tools/ContractDeal';
+import GoalIndex from '../components/views/goals/index';
+import GoalShow from '../components/views/goals/show';
+import GoalNew from '../components/views/goals/new';
+import GoalEdit from '../components/views/goals/edit';
+import Tasks from '../components/views/Tasks';
+import Settings from '../components/views/Settings';
 
 class Routes extends React.Component {
     render() {

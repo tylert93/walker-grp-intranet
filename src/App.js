@@ -1,5 +1,5 @@
 // Import React
-import React from 'react';
+import React, { useState } from 'react';
 
 // Import routes
 import Routes from './routes/index';
@@ -14,20 +14,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 import '@fortawesome/fontawesome-free/js/all.js';
 
-class App extends React.Component {
+const App = () => {
    
-    state = {
-        currentUser: {
-            username:'tom.tyler@walkergrp.co.uk',
-            name: 'Tom Tyler'
-        }
-    }
+    
+    const currentUser = useState({
+        username: 'tom.tyler@walkergrp.co.uk',
+        name: 'Tom Tyler'
+    })
 
-    render() {
-
-        return (<Routes currentUser={this.state.currentUser}/>)
-        
-    }
+    return (<Routes currentUser={currentUser}/>)
+    
 }
 
 export default App

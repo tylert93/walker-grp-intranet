@@ -1,21 +1,28 @@
 import React from 'react';
 import {Link} from '@reach/router';
 
-class ToolIcon extends React.Component {
-    render() {
-        return (
-            <div className="col-2">
-                <div className="d-flex justify-content-center">
-                    <Link className="d-block hvr-float" to={this.props.to}>
-                        <div className={`rounded-circle hvr-shadow p-4 ${this.props.colour}`}> 
-                            <i className={`icon fa-fw ${this.props.iconName}`} alt={this.props.Alt} ></i>
-                        </div>
-                    </Link>
+const ToolIcon = (props) => {
+
+    return (
+        <Link className={`link col-2 m-3 p-0`} to={props.to}>
+        <div className={`tool-card hvr-shadow hvr-float ${props.colour}`}>
+            
+
+                <div className={`d-flex justify-content-center`}>
+                    
+                    <div className={`p-3`}> 
+                        <img src={props.svg} width="120" alt="Walker Group Logo"></img>
+                    </div>
+                    
                 </div>
-                <h6 className="text-center mt-2">{this.props.title}</h6>
-            </div>
-        )
-    }
+
+                <h5 className="text-center mt-0 mb-4">{props.title}</h5> 
+
+            
+        </div>
+        </Link>
+    )
+
 }
 
 export default ToolIcon
