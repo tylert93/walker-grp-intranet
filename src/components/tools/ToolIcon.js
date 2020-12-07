@@ -4,7 +4,7 @@ import {Link} from '@reach/router';
 const ToolIcon = (props) => {
 
     return (
-        <Link className={`link col-3 m-0 p-3`} to={props.to}>
+        <Link className={`link col-6 col-sm-6 col-md-4 col-lg-3 m-0 p-3`} to={props.to}>
             <div className={`tool-card hvr-shadow hvr-float ${props.colour}`}>  
 
                 <div className={`d-flex justify-content-center`}>
