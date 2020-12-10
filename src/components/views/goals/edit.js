@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Wrapper from '../../partials/Wrapper';
 import {Link} from '@reach/router';
 import {db} from '../../../services/firebase';
+import ViewHeader from '../../misc/ViewHeader';
 import '../../../css/goals/update.css';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -60,52 +61,48 @@ const UpdateGoal = (props) => {
 
         <Wrapper>
 
-            <div className="container">
+            <ViewHeader title="Review Goal" />
+            
+            <div className="form-container col-10 mt-5 mx-auto">
 
-                <h3>Review this goal</h3>
-                
-                <div className="form-container col-10 mt-5 mx-auto">
+                <h4>{text}</h4>
 
-                    <h4>{text}</h4>
+                <br/>
+
+                <form>
+                    <div className="form-group">
+                        <label htmlFor="rating"><strong>Rating</strong></label>
+                        <small className="d-block mb-2">To what degree have you achieved this goal?</small>
+                        <div className="rating">
+                            <FontAwesomeIcon icon={rating > 4 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 4 ? 'gold' : 'grey'}`} onClick={() => {changeRating(5)}}/>
+                            <FontAwesomeIcon icon={rating > 3 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 3 ? 'gold' : 'grey'}`} onClick={() => {changeRating(4)}}/>
+                            <FontAwesomeIcon icon={rating > 2 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 2 ? 'gold' : 'grey'}`} onClick={() => {changeRating(3)}}/>
+                            <FontAwesomeIcon icon={rating > 1 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 1 ? 'gold' : 'grey'}`} onClick={() => {changeRating(2)}}/>
+                            <FontAwesomeIcon icon={rating > 0 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 0 ? 'gold' : 'grey'}`} onClick={() => {changeRating(1)}}/>
+                        </div>
+                    </div>
 
                     <br/>
 
-                    <form>
-                        <div className="form-group">
-                            <label htmlFor="rating"><strong>Rating</strong></label>
-                            <small className="d-block mb-2">To what degree have you achieved this goal?</small>
-                            <div className="rating">
-                                <FontAwesomeIcon icon={rating > 4 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 4 ? 'gold' : 'grey'}`} onClick={() => {changeRating(5)}}/>
-                                <FontAwesomeIcon icon={rating > 3 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 3 ? 'gold' : 'grey'}`} onClick={() => {changeRating(4)}}/>
-                                <FontAwesomeIcon icon={rating > 2 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 2 ? 'gold' : 'grey'}`} onClick={() => {changeRating(3)}}/>
-                                <FontAwesomeIcon icon={rating > 1 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 1 ? 'gold' : 'grey'}`} onClick={() => {changeRating(2)}}/>
-                                <FontAwesomeIcon icon={rating > 0 ? solidStar : emptyStar} size='lg' className={`mx-1 ${rating > 0 ? 'gold' : 'grey'}`} onClick={() => {changeRating(1)}}/>
-                            </div>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="employee-comments"><strong>Employee's Comments</strong></label>
+                        <small className="d-block mb-2">How did you achieve it, could you have improved?</small>
+                        <textarea className="form-control" id="employee-comments" aria-describedby="employee-comments" value={employeeComments} onChange={e => {changeEmployeeComments(e.target.value)}}></textarea>
+                    </div>
 
-                        <br/>
+                    <br/>
 
-                        <div className="form-group">
-                            <label htmlFor="employee-comments"><strong>Employee's Comments</strong></label>
-                            <small className="d-block mb-2">How did you achieve it, could you have improved?</small>
-                            <textarea className="form-control" id="employee-comments" aria-describedby="employee-comments" value={employeeComments} onChange={e => {changeEmployeeComments(e.target.value)}}></textarea>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="supervisor-comments"><strong>Supervisor's Comments</strong></label>
+                        <small className="d-block mb-2">How do you think they performed?</small>
+                        <textarea className="form-control" id="supervisor-comments" aria-describedby="supervisor-comments" value={supervisorComments} onChange={e => {changeSupervisorComments(e.target.value)}}></textarea>
+                    </div>
 
-                        <br/>
+                    <Link to="/username/goals">
+                        <button type="submit" className="btn btn-primary" onClick={updateGoal}>Submit</button>
+                    </Link>
 
-                        <div className="form-group">
-                            <label htmlFor="supervisor-comments"><strong>Supervisor's Comments</strong></label>
-                            <small className="d-block mb-2">How do you think they performed?</small>
-                            <textarea className="form-control" id="supervisor-comments" aria-describedby="supervisor-comments" value={supervisorComments} onChange={e => {changeSupervisorComments(e.target.value)}}></textarea>
-                        </div>
-
-                        <Link to="/username/goals">
-                            <button type="submit" className="btn btn-primary" onClick={updateGoal}>Submit</button>
-                        </Link>
-
-                    </form>
-
-                </div>
+                </form>
 
             </div>
 

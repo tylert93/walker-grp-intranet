@@ -57,3 +57,7 @@ th, td{
 .last-row{
     background-color:#45c1a5;
 }
+
+.border-bottom-torquise{
+    border-bottom:solid 10px  #45c1a5;
+}

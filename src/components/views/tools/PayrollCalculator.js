@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Wrapper from '../../partials/Wrapper';
 import PayrollVars from '../../tools/PayrollVars';
-import PayrollParameter from '../../tools/PayrollParameter';
+import PayrollParameters from '../../tools/PayrollParameters';
+import ViewHeader from '../../misc/ViewHeader';
 import '../../../css/tools/PayrollCalculator.css';
 
 const PayrollCalculator = () => {
@@ -34,14 +35,25 @@ const PayrollCalculator = () => {
     const [pension, setPension] = useState(queryPension)    
 
     const onChangeHours = (value) => {
-            setHours(value);
+
+        if(!value){
+            value = '';
+        }
+
+        setHours(value);
     }
 
     const onChangeRate = (value) => {
+
+        if(!value){
+            value = '';
+        }
+
         setRate(value);
     }
 
     const onChangePensionYes = () => {
+        
         setPension(true);
     }
 
@@ -53,8 +65,10 @@ const PayrollCalculator = () => {
         
         <Wrapper>
 
-            <div className="container payroll-calculator-container">
+            <div className="payroll-calculator-container">
 
+                <ViewHeader title="Payroll Calculator" />
+                
                 <PayrollVars 
                     hours={hours} 
                     rate={rate}
@@ -65,7 +79,7 @@ const PayrollCalculator = () => {
                     changePensionNo={onChangePensionNo}
                 />
 
-                <PayrollParameter
+                <PayrollParameters
                     hours={hours}
                     rate={rate}
                     pension={pension}

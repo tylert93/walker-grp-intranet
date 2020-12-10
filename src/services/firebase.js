@@ -4,14 +4,14 @@ import 'firebase/firestore';
 
 // WG-Intranet Firebase app's configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBXHkuZc0YmPR5y0NBwqRH8Wwf-l6tUFWs",
-    authDomain: "wg-intranet.firebaseapp.com",
-    databaseURL: "https://wg-intranet.firebaseio.com",
-    projectId: "wg-intranet",
-    storageBucket: "wg-intranet.appspot.com",
-    messagingSenderId: "903789272172",
-    appId: "1:903789272172:web:7cb9dab73e6596a9480c49",
-    measurementId: "G-2MQK2BQFN3"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase

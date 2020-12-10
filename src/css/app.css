@@ -4,3 +4,77 @@
     position: absolute;
     padding-bottom: 300px;
 }
+
+@font-face {
+    font-family: 'cabin';
+    src: url('../fonts/cabin-variablefont_wdthwght-webfont.woff2') format('woff2'),
+         url('../fonts/cabin-variablefont_wdthwght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Syne';
+    src: url('../fonts/syne-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/syne-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/mulish-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/mulish-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.body{
+    font-family: 'Mulish', sans-serif;
+}
+
+.auth-view{
+    background-image:url('../images/wg-office.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.view-heading{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top:3rem;
+    margin-bottom: 6rem;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.ball{
+    height:20px;
+    width:20px;
+    border-radius: 50%;
+}
+
+.pipe{
+    height:10px;
+    width:100%;
+    border-radius: 15px;
+}
+
+.bg-yellow{
+    background-color: #ffcb00;
+}
+
+.bg-light-blue{
+    background-color: #83ceea;
+}
+
+.bg-torquise{
+    background-color: #6ebfa2;
+}
+
+.accordion-collapse{
+    background-color: red;
+}

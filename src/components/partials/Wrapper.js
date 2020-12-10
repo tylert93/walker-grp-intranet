@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import { Container } from 'react-bootstrap';
 import '../../css/partials/wrapper.css';
 
 const Wrapper = (props) => {
@@ -8,7 +9,9 @@ const Wrapper = (props) => {
     return(
         <div className="wrapper">
             <Header />
-                {props.children}
+                <Container>
+                    {props.children}
+                </Container>
             <Footer />
         </div>
     )

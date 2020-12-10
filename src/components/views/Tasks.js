@@ -1,5 +1,6 @@
 import React from 'react';
 import Wrapper from '../partials/Wrapper';
+import ViewHeader from '../misc/ViewHeader';
 
 const Tasks = () => {
  
@@ -7,7 +8,7 @@ const Tasks = () => {
         
         <Wrapper>
 
-            <h3 className="text-center">Tasks</h3>
+            <ViewHeader title="Tasks" />
 
         </Wrapper>
 

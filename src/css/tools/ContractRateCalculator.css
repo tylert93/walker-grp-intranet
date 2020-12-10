@@ -1,0 +1,43 @@
+.border-bottom-blue{
+    border-bottom:solid 10px #00b4df; 
+}
+
+.contract-rate-vars-container .input-group-text{
+    background-color: #00b4df;
+    border: solid 2px #00b4df;
+    color:#fff;
+    height:40px;
+}
+
+.contract-rate-vars-container .form-control{
+    border: solid 2px #00b4df;
+    height:40px;
+}
+
+.btn-radio{
+    font-weight:bold;
+}
+
+.contract-rate-vars-container .highlight-blue, .highlight-blue{
+    background-color: #00b4df;
+    border: solid 2px #00b4df;
+    color:#fff;
+}
+
+.contract-rate-vars-container .highlight-blue:hover{
+    color:#fff;
+}
+
+.contract-rate-vars-container .highlight-white{
+    background-color: #fff;
+    color:#00b4df;
+    border:solid 0.125rem #00b4df;
+}
+
+.contract-rate-vars-container .highlight-white:hover{
+    background-color: #00b4df;
+    border: solid 2px #00b4df;
+    color:#fff;
+}
+
+

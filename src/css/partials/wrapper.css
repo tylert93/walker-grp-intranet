@@ -4,3 +4,8 @@
     position: absolute;
     padding-bottom: 300px;
 }
+
+.nav-link{
+    font-weight:700;
+    font-size: 1rem;
+}

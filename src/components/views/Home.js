@@ -1,5 +1,6 @@
 import React from 'react';
 import Wrapper from '../partials/Wrapper';
+import collab from '../../images/collaberation2.jpg';
 
 const Home = () => {
   
@@ -7,9 +8,25 @@ const Home = () => {
 
         <Wrapper>
 
-            <div className="container mt-5">
-                <h3 className="text-center">Welcome to the Walker Group Intranet</h3>
-                <p className="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse facilisis ullamcorper purus eget pharetra. Proin sed nisi vitae erat venenatis euismod a at lacus. Nulla lacus nisi, facilisis eu erat in, commodo pharetra metus. Fusce et mauris eu mi condimentum efficitur id quis arcu. Aliquam suscipit euismod mi a gravida. Etiam tempor sapien tellus, non sagittis mauris feugiat euismod. Cras lacinia diam at nibh hendrerit pharetra. Vestibulum eget felis id sem tincidunt vestibulum sed vitae ipsum. Aenean eget fringilla velit. Maecenas sed nunc at lacus pretium sagittis. Duis pellentesque libero et ultricies tempor. Donec vehicula varius purus vitae egestas. Nam odio risus, eleifend vel fermentum nec, dapibus vitae turpis. Duis tempus tincidunt massa sit amet aliquet. Praesent sed nunc pharetra, fringilla ligula consequat, tempus tellus</p>
+            <div className="row d-flex flex-column-reverse flex-md-row align-items-center mt-5">
+
+                <div className="col-11 col-md-7">
+                    <img className="img-fluid w-100" src={collab} alt="collaberation" />
+                </div>
+
+                <div className="col-11 col-md-5 d-flex flex-column justify-content-center align-items-center text-center mb-5">
+
+                    <h2>Welcome to the Walker Group Intranet</h2>
+
+                    <div className="d-flex my-5">
+                        <div className="ball bg-yellow"></div>
+                        <div className="ball bg-light-blue mx-2"></div>
+                        <div className="ball bg-torquise"></div>
+                    </div>
+                    
+                    <h3>Here for the team</h3>
+                </div>
+
             </div>
 
         </Wrapper>

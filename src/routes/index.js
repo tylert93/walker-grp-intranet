@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router} from "@reach/router";
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from '../components/views/Home';
 import Tools from '../components/views/tools/index';
 import PayrollCalculator from '../components/views/tools/PayrollCalculator';
@@ -11,30 +11,45 @@ import GoalNew from '../components/views/goals/new';
 import GoalEdit from '../components/views/goals/edit';
 import Tasks from '../components/views/Tasks';
 import Settings from '../components/views/Settings';
+import Register from '../components/views/auth/Register';
+import Reset from '../components/views/auth/Reset'
+import Login from '../components/views/auth/Login';
+import ContractRateCalculator from '../components/views/tools/ContractRateCalculator';
+import AddressBook from '../components/views/tools/AddressBook';
+import PrivateRoute from '../middleware/PrivateRoute';
 
-class Routes extends React.Component {
-    render() {
-        return(
-            <Router>
+const Routes = () => {
+    
+    return(
+        <Router>
+            <Switch>
 
-                <Home path="/" />
+                <Route exact path="/" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/reset-password" component={Reset} />
 
-                <Tools path="/tools" />
-                <PayrollCalculator path="/tools/payroll-calculator" />
-                <PermDeal path="/tools/permanent-deal" />
-                <ContractDeal path="/tools/contract-deal" />
+                <PrivateRoute exact path="/home" component={Home} />
 
-                <GoalIndex path="/username/goals" />
-                <GoalNew path="/username/goals/new" username={this.props.currentUser.username}/>
-                <GoalShow path="/username/goals/:_id" />
-                <GoalEdit path="/username/goals/:_id/edit" />
+                <PrivateRoute exact path="/tools" component={Tools} />
+                <PrivateRoute exact path="/tools/payroll-calculator" component={PayrollCalculator} />
+                <PrivateRoute exact path="/tools/permanent-deal" component={PermDeal} />
+                <PrivateRoute exact path="/tools/contract-deal" component={ContractDeal} />
+                <PrivateRoute exact path="/tools/contract-rate-calculator" component={ContractRateCalculator} />
+                <PrivateRoute exact path="/tools/address-book" component={AddressBook} />
 
-                <Tasks path="/username/tasks" />
+                <PrivateRoute exact path="/username/goals" component={GoalIndex} />
+                <PrivateRoute exact path="/username/goals/new" component={GoalNew} />
+                <PrivateRoute exact path="/username/goals/:_id" component={GoalShow} />
+                <PrivateRoute exact path="/username/goals/:_id/edit" component={GoalEdit} />
 
-                <Settings path="/username/settings" />
-            </Router>
-        )
-    }
+                <PrivateRoute exact path="/username/tasks" component={Tasks} />
+
+                <PrivateRoute exact path="/username/settings" component={Settings} />
+
+            </Switch>
+        </Router>
+    )
+    
 }
 
 export default Routes
