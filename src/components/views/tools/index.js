@@ -8,6 +8,7 @@ import calculator from '../../../images/calculator.svg';
 import tag from '../../../images/tag.svg';
 import contract from '../../../images/contract.svg';
 import megaphone from '../../../images/megaphone.svg';
+import graph from '../../../images/graph.svg';
 import ViewHeader from '../../misc/ViewHeader';
 
 const Tools = () => {
@@ -24,13 +25,15 @@ const Tools = () => {
                             
                 <ToolIcon svg={contract} colour="suzy" Alt="Contract Deal" to="/tools/contract-deal" title="Contract Deal"/>
 
+                <ToolIcon svg={graph} colour="lemon" Alt="graph" to="/tools/NASUWT-pay-scales" title="NASUWT Pay Scales" />
+
                 <ToolIcon svg={calculator} colour="lush" Alt="Calculator" to="/tools/payroll-calculator" title="Payroll Calculator" />
 
                 <ToolIcon svg={safe}  colour="juicy-orange" Alt="Permanent Deal" to="/tools/permanent-deal" title="Permanent Deal" />
 
                 <ToolIcon svg={tag} colour="cool-blues" Alt="Calculator" to="/tools/contract-rate-calculator" title="Rate Calculator" />
 
-                <ToolIcon svg={megaphone} colour="lemon" Alt="megaphone" to="/tools/suggestions" title="Suggestions" />
+                <ToolIcon svg={megaphone} colour="peach" Alt="megaphone" to="#" title="Suggestions" />
         
             </div>
 

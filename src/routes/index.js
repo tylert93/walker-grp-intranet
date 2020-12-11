@@ -17,6 +17,7 @@ import Login from '../components/views/auth/Login';
 import ContractRateCalculator from '../components/views/tools/ContractRateCalculator';
 import AddressBook from '../components/views/tools/AddressBook';
 import PrivateRoute from '../middleware/PrivateRoute';
+import NASUWTPayScales from '../components/views/tools/NASUWTPayScales';
 
 const Routes = () => {
     
@@ -36,6 +37,8 @@ const Routes = () => {
                 <PrivateRoute exact path="/tools/contract-deal" component={ContractDeal} />
                 <PrivateRoute exact path="/tools/contract-rate-calculator" component={ContractRateCalculator} />
                 <PrivateRoute exact path="/tools/address-book" component={AddressBook} />
+                <PrivateRoute exact path="/tools/NASUWT-pay-scales" component={NASUWTPayScales} />
+
 
                 <PrivateRoute exact path="/username/account" component={Account} />
                 <PrivateRoute exact path="/username/goals" component={GoalIndex} />

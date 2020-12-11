@@ -77,7 +77,7 @@ const Header = () => {
                     </li>
 
                     <li className="nav-item">
-                        <Link className="nav-link" to="/tools">Notices</Link>
+                        <Link className="nav-link" to="#">Notices</Link>
                     </li>
 
                     <form className="form-inline my-2 my-md-0 ml-0 ml-md-3">
