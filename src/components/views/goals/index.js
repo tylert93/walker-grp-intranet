@@ -4,6 +4,7 @@ import { db } from '../../../services/firebase';
 import Wrapper from '../../partials/Wrapper';
 import PrevGoalCard from '../../goals/PrevGoalCard';
 import CurrGoalCard from '../../goals/CurrGoalCard';
+import { useAuth } from '../../../contexts/AuthContext';
 import { v4 } from 'uuid';
 import ViewHeader from '../../misc/ViewHeader';
 import '../../../css/goals/index.css';
@@ -11,10 +12,11 @@ import '../../../css/goals/index.css';
 const GoalIndex = () => {
 
     const [goals, setGoals] = useState()
+    const { currentUser } = useAuth()
 
     useEffect(() => {
 
-        db.collection('goals').where("userId", "==", 'tom.tyler@walkergrp.co.uk').orderBy("created", "desc")
+        db.collection('goals').where("userId", "==", currentUser.email).orderBy("created", "desc")
         .get()
         .then( snapshot => {
             const goals = [];

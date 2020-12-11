@@ -54,6 +54,18 @@ export const AuthProvider = ({children}) => {
             });
     }
 
+    const updateCurrentUserInfo = async () => {
+
+        try{
+            const fetchUser = await db.collection('users').doc(currentUser.email).get()
+            setCurrentUserInfo(fetchUser.data())
+        }catch(error) {
+            toast.error("Could not find user information", {autoClose:false, position: toast.POSITION.TOP_CENTER})
+            console.log(error)
+        }
+
+    }
+
     useEffect( () =>{
 
         const unsubcribe = auth.onAuthStateChanged(async user => {
@@ -84,6 +96,7 @@ export const AuthProvider = ({children}) => {
     const value = {
         currentUser,
         currentUserInfo,
+        updateCurrentUserInfo,
         signUpUser,
         logUserIn,
         logout,

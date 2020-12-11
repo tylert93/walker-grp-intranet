@@ -3,10 +3,11 @@ import Wrapper from '../../partials/Wrapper';
 import ToolIcon from '../../tools/ToolIcon';
 import '../../../css/tools/index.css';
 import addressBook from '../../../images/address-book.svg';
-import safe from '../../../images/safe2.svg';
-import calculator from '../../../images/calculator3.svg';
+import safe from '../../../images/safe.svg';
+import calculator from '../../../images/calculator.svg';
 import tag from '../../../images/tag.svg';
-import contract from '../../../images/contract3.svg';
+import contract from '../../../images/contract.svg';
+import megaphone from '../../../images/megaphone.svg';
 import ViewHeader from '../../misc/ViewHeader';
 
 const Tools = () => {
@@ -28,6 +29,8 @@ const Tools = () => {
                 <ToolIcon svg={safe}  colour="juicy-orange" Alt="Permanent Deal" to="/tools/permanent-deal" title="Permanent Deal" />
 
                 <ToolIcon svg={tag} colour="cool-blues" Alt="Calculator" to="/tools/contract-rate-calculator" title="Rate Calculator" />
+
+                <ToolIcon svg={megaphone} colour="lemon" Alt="megaphone" to="/tools/suggestions" title="Suggestions" />
         
             </div>
 

@@ -52,9 +52,9 @@ const Header = () => {
                                 Goals
                             </Link>
                             <div className="dropdown-divider"></div>
-                            <Link className="dropdown-item py-0 pl-2" to="/username/settings">
+                            <Link className="dropdown-item py-0 pl-2" to="/username/account">
                                 <i className="fas fa-cog mr-2 text-muted"></i>
-                                Settings
+                                Account
                             </Link>
                             <div className="dropdown-divider"></div>
                             <div onClick={handleLogout} className="dropdown-item pointer py-0 pl-2">
@@ -74,6 +74,10 @@ const Header = () => {
 
                     <li className="nav-item">
                         <Link className="nav-link" to="/tools">Tools</Link>
+                    </li>
+
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/tools">Notices</Link>
                     </li>
 
                     <form className="form-inline my-2 my-md-0 ml-0 ml-md-3">

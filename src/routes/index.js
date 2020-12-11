@@ -10,7 +10,7 @@ import GoalShow from '../components/views/goals/show';
 import GoalNew from '../components/views/goals/new';
 import GoalEdit from '../components/views/goals/edit';
 import Tasks from '../components/views/Tasks';
-import Settings from '../components/views/Settings';
+import Account from '../components/views/Account';
 import Register from '../components/views/auth/Register';
 import Reset from '../components/views/auth/Reset'
 import Login from '../components/views/auth/Login';
@@ -37,14 +37,13 @@ const Routes = () => {
                 <PrivateRoute exact path="/tools/contract-rate-calculator" component={ContractRateCalculator} />
                 <PrivateRoute exact path="/tools/address-book" component={AddressBook} />
 
+                <PrivateRoute exact path="/username/account" component={Account} />
                 <PrivateRoute exact path="/username/goals" component={GoalIndex} />
                 <PrivateRoute exact path="/username/goals/new" component={GoalNew} />
                 <PrivateRoute exact path="/username/goals/:_id" component={GoalShow} />
                 <PrivateRoute exact path="/username/goals/:_id/edit" component={GoalEdit} />
 
                 <PrivateRoute exact path="/username/tasks" component={Tasks} />
-
-                <PrivateRoute exact path="/username/settings" component={Settings} />
 
             </Switch>
         </Router>
