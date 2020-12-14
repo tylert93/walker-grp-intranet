@@ -16,7 +16,6 @@ const PrivateRoute = ({ component: Component, ...rest}) => {
 
                 : (<>
 
-                {toast.error("You must be logged in to access that page", {autoClose:false, position: toast.POSITION.TOP_CENTER})}
                 <Redirect to="/" />
                 
                 </>)
