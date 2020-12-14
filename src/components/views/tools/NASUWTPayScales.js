@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Table, Form } from 'react-bootstrap'
 import Wrapper from '../../partials/Wrapper';
 import ViewHeader from '../../misc/ViewHeader';

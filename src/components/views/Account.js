@@ -1,8 +1,7 @@
 import React from 'react';
 import Wrapper from '../partials/Wrapper';
 import { useAuth } from '../../contexts/AuthContext';
-import { Link } from 'react-router-dom';
-import { Card, CardGroup, Button } from 'react-bootstrap';
+import { Card, CardGroup } from 'react-bootstrap';
 import ViewHeader from '../misc/ViewHeader';
 import EditPersonalModal from '../../components/account/EditPersonalModal';
 import EditEmergencyModal from '../../components/account/EditEmergencyModal';

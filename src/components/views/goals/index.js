@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { db } from '../../../services/firebase';
 import Wrapper from '../../partials/Wrapper';
 import PrevGoalCard from '../../goals/PrevGoalCard';
