@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Wrapper from '../../partials/Wrapper';
-import {Link} from '@reach/router';
+import {Link} from 'react-router-dom';
 import {db} from '../../../services/firebase';
 import ViewHeader from '../../misc/ViewHeader';
 import '../../../css/goals/update.css';
