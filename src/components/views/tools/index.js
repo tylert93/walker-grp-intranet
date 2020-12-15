@@ -33,7 +33,7 @@ const Tools = () => {
 
                 <ToolIcon svg={tag} colour="cool-blues" Alt="Calculator" to="/tools/contract-rate-calculator" title="Rate Calculator" />
 
-                <ToolIcon svg={megaphone} colour="peach" Alt="megaphone" to="#" title="Suggestions" />
+                {/* <ToolIcon svg={megaphone} colour="peach" Alt="megaphone" to="#" title="Suggestions" /> */}
         
             </div>
 

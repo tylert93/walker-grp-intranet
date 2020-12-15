@@ -42,7 +42,7 @@ const Header = () => {
                             </span>
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <Link className="dropdown-item py-0  pl-2" to="/username/tasks">
+                            {/* <Link className="dropdown-item py-0  pl-2" to="/username/tasks">
                                 <i className="fas fa-thumbtack mr-2 text-muted"></i>
                                 Tasks
                             </Link>
@@ -51,7 +51,7 @@ const Header = () => {
                                 <i className="fas fa-bullseye mr-2 text-muted"></i>
                                 Goals
                             </Link>
-                            <div className="dropdown-divider"></div>
+                            <div className="dropdown-divider"></div> */}
                             <Link className="dropdown-item py-0 pl-2" to="/username/account">
                                 <i className="fas fa-cog mr-2 text-muted"></i>
                                 Account
@@ -62,28 +62,28 @@ const Header = () => {
                                 Logout
                             </div>
                         </div>
-                    </li> 
-                    
-                </ul>
-    
-                <ul className="nav navbar-nav navbar-right">
-
-                    <li className="nav-item">
-                        <Link className="nav-link" to="#">Jobs</Link>
                     </li>
 
                     <li className="nav-item">
                         <Link className="nav-link" to="/tools">Tools</Link>
                     </li>
+                    
+                </ul>
+    
+                <ul className="nav navbar-nav navbar-right">
 
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
+                        <Link className="nav-link" to="#">Jobs</Link>
+                    </li> */}
+
+                    {/* <li className="nav-item">
                         <Link className="nav-link" to="#">Notices</Link>
-                    </li>
+                    </li> */}
 
-                    <form className="form-inline my-2 my-md-0 ml-0 ml-md-3">
+                    {/* <form className="form-inline my-2 my-md-0 ml-0 ml-md-3">
                         <input className="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
                         <button className="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                    </form> */}
 
                 </ul>
             
