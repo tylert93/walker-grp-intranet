@@ -56,7 +56,17 @@ const Header = () => {
                                 <i className="fas fa-cog mr-2 text-muted"></i>
                                 Account
                             </Link>
+
                             <div className="dropdown-divider"></div>
+
+                            {currentUserInfo.admin &&
+                            <Link className="dropdown-item py-0 pl-2" to="/username/admin-panel">
+                                <i className="fas fa-unlock-alt mr-2 text-muted"></i>
+                                Admin Panel
+                            </Link>}
+
+                            <div className="dropdown-divider"></div>
+
                             <div onClick={handleLogout} className="dropdown-item pointer py-0 pl-2">
                                 <i onClick={handleLogout} className="fas fa-sign-out-alt mr-2 text-muted"></i>
                                 Logout

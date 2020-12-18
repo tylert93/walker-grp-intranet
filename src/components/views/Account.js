@@ -26,7 +26,7 @@ const Account = () => {
                             <h5 className="card-title">Role Profile</h5>
                             <div className="my-2">
                                 <strong>Role: </strong>
-                                {currentUserInfo.role}
+                                {currentUserInfo.roleTitle}
                             </div>
                             <div className="my-2">
                                 <strong>Manager: </strong>
@@ -34,6 +34,7 @@ const Account = () => {
                             </div>
                             <div className="my-2">
                                 <strong>Scope: </strong>
+                                {currentUserInfo.roleScope}
                             </div>
                         </Card.Body>
 
@@ -85,15 +86,15 @@ const Account = () => {
                             <h5 className="card-title">Emergency Contact</h5>
                             <div className="my-2">
                                 <strong>Name: </strong>
-                                {currentUserInfo.emergencyInfo.name}
+                                {currentUserInfo.emergencyContact.name}
                             </div>
                             <div className="my-2">
                                 <strong>Mobile </strong>
-                                {currentUserInfo.emergencyInfo.mobile}
+                                {currentUserInfo.emergencyContact.mobile}
                             </div>
                             <div className="my-2">
                                 <strong>Email: </strong>
-                                {currentUserInfo.emergencyInfo.email}
+                                {currentUserInfo.emergencyContact.email}
                             </div>
                         </Card.Body>
 

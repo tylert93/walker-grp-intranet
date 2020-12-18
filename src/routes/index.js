@@ -18,6 +18,8 @@ import ContractRateCalculator from '../components/views/tools/ContractRateCalcul
 import AddressBook from '../components/views/tools/AddressBook';
 import PrivateRoute from '../middleware/PrivateRoute';
 import NASUWTPayScales from '../components/views/tools/NASUWTPayScales';
+import AdminRoute from '../middleware/AdminRoute';
+import AdminPanel from '../components/AdminPanel';
 
 const Routes = () => {
     
@@ -47,6 +49,8 @@ const Routes = () => {
                 <PrivateRoute exact path="/username/goals/:_id/edit" component={GoalEdit} />
 
                 <PrivateRoute exact path="/username/tasks" component={Tasks} />
+
+                <AdminRoute exact path="/username/admin-panel" component={AdminPanel} />
 
             </Switch>
         </Router>

@@ -34,11 +34,6 @@ export const AuthProvider = ({children}) => {
 
         db.collection('users').doc(email)
             .set({
-                created_at: new Date(),
-                name: name,
-                role: '-',
-                email:email,
-                manager:'-',
                 admin: admin,
                 contactInfo: {
                     direct: '-',
@@ -46,11 +41,22 @@ export const AuthProvider = ({children}) => {
                     personalEmail: '-',
                     mobile: '-',
                 },
-                emergencyInfo: {
+                createdAt: new Date(),
+                email:email,
+                emergencyContact: {
                     name: '-',
                     email: '-',
                     mobile: '-'
-                }
+                },
+                manager:'-',
+                manages:[],
+                name: name,
+                roleTitle: '-',
+                roleScope:'-'
+               
+               
+                
+                
             });
     }
 

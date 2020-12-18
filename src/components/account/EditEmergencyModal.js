@@ -9,9 +9,9 @@ const EditEmergencyModal = () => {
     const { currentUser, currentUserInfo, updateCurrentUserInfo } = useAuth()
     const [show, setShow] = useState(false);
 
-    const [name, setName] = useState(currentUserInfo.emergencyInfo.name)
-    const [mobile, setMobile] = useState(currentUserInfo.emergencyInfo.mobile)
-    const [email, setEmail] = useState(currentUserInfo.emergencyInfo.email)
+    const [name, setName] = useState(currentUserInfo.emergencyContact.name)
+    const [mobile, setMobile] = useState(currentUserInfo.emergencyContact.mobile)
+    const [email, setEmail] = useState(currentUserInfo.emergencyContact.email)
 
     const changeName = (value) => {
         setName(value)
@@ -29,9 +29,9 @@ const EditEmergencyModal = () => {
 
         setShow(false)
 
-        setName(currentUserInfo.emergencyInfo.name)
-        setMobile(currentUserInfo.emergencyInfo.mobile)
-        setEmail(currentUserInfo.emergencyInfo.personalEmail)
+        setName(currentUserInfo.emergencyContact.name)
+        setMobile(currentUserInfo.emergencyContact.mobile)
+        setEmail(currentUserInfo.emergencyContact.personalEmail)
     };
 
     const handleShow = () => setShow(true);
@@ -40,9 +40,9 @@ const EditEmergencyModal = () => {
 
         db.collection('users').doc(currentUser.email)
         .update({
-            "emergencyInfo.name":name,
-            "emergencyInfo.mobile":mobile,
-            "emergencyInfo.email":email,
+            "emergencyContact.name":name,
+            "emergencyContact.mobile":mobile,
+            "emergencyContact.email":email,
         })
         .then(
             updateCurrentUserInfo()
