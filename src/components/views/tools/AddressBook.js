@@ -24,8 +24,6 @@ const AddressBook = () => {
 
         setFilteredList(filtered);
 
-
-
     }
 
     useEffect(() => {

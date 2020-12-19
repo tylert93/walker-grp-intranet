@@ -40,7 +40,13 @@ const EditPersonalModal = () => {
         setPersonalEmail(currentUserInfo.contactInfo.personalEmail)
     };
 
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        setDirect(currentUserInfo.contactInfo.direct)
+        setExt(currentUserInfo.contactInfo.ext)
+        setMobile(currentUserInfo.contactInfo.mobile)
+        setPersonalEmail(currentUserInfo.contactInfo.personalEmail)
+        setShow(true)
+    }
 
     const updatePersonal = () => {
 
@@ -67,31 +73,35 @@ const EditPersonalModal = () => {
       <>
         <Button variant="primary" size="sm" onClick={handleShow}>
             <i class="fas fa-pencil-alt mr-2"></i>
-          Edit
+            Edit
         </Button>
   
         <Modal show={show} onHide={handleClose}>
 
             <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>Contact Details</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
                 <Form>
 
                     <Form.Group id="direct">
+                        <Form.Label>Direct</Form.Label>
                         <Form.Control onChange={e => {changeDirect(e.target.value)}} type="text" value={direct} required />
                     </Form.Group>
 
                     <Form.Group id="ext">
+                        <Form.Label>Ext</Form.Label>
                         <Form.Control onChange={e => {changeExt(e.target.value)}} type="text" value={ext} required />
                     </Form.Group>
 
                     <Form.Group id="mobile">
+                        <Form.Label>Mobile</Form.Label>
                         <Form.Control onChange={e => {changeMobile(e.target.value)}} type="text" value={mobile} required />
                     </Form.Group>
 
                     <Form.Group id="personal-email">
+                        <Form.Label>Personal Email</Form.Label>
                         <Form.Control onChange={e => {changePersonalEmail(e.target.value)}} type="text" value={personalEmail} required />
                     </Form.Group>
 

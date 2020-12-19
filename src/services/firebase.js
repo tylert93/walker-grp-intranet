@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 
 // WG-Intranet Firebase app's configuration
 const firebaseConfig = {
@@ -20,5 +21,6 @@ firebase.analytics();
 
 export const auth = firebase.auth();
 export const db = firebase.firestore();
+export const storage = firebase.storage();
 
 export default firebase

@@ -28,13 +28,17 @@ const EditEmergencyModal = () => {
     const handleClose = () => {
 
         setShow(false)
-
         setName(currentUserInfo.emergencyContact.name)
         setMobile(currentUserInfo.emergencyContact.mobile)
         setEmail(currentUserInfo.emergencyContact.personalEmail)
     };
 
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        setName(currentUserInfo.emergencyContact.name)
+        setMobile(currentUserInfo.emergencyContact.mobile)
+        setEmail(currentUserInfo.emergencyContact.personalEmail)
+        setShow(true)
+    }
 
     const updatePersonal = () => {
 
@@ -60,27 +64,30 @@ const EditEmergencyModal = () => {
       <>
         <Button variant="primary" size="sm" onClick={handleShow}>
             <i class="fas fa-pencil-alt mr-2"></i>
-          Edit
+            Edit
         </Button>
   
         <Modal show={show} onHide={handleClose}>
 
             <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>Emergency Contact</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
                 <Form>
 
-                    <Form.Group id="direct">
+                    <Form.Group id="name">
+                        <Form.Label>Name</Form.Label>
                         <Form.Control onChange={e => {changeName(e.target.value)}} type="text" value={name} required />
                     </Form.Group>
 
                     <Form.Group id="mobile">
+                        <Form.Label>Mobile</Form.Label>
                         <Form.Control onChange={e => {changeMobile(e.target.value)}} type="text" value={mobile} required />
                     </Form.Group>
 
-                    <Form.Group id="personal-email">
+                    <Form.Group id="email">
+                        <Form.Label>Email</Form.Label>
                         <Form.Control onChange={e => {changeEmail(e.target.value)}} type="text" value={email} required />
                     </Form.Group>
 

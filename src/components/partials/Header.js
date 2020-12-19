@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../images/walker-grp-ltd-logo-light.svg';
 import { useAuth } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
+import AvatarContainer from '../misc/AvatarContainer';
 
 const Header = () => {
 
@@ -32,14 +33,16 @@ const Header = () => {
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <ul className="navbar-nav mr-auto">
+                <ul className="navbar-nav mr-auto d-flex align-items-center">
 
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span>
-                                <i className="fas fa-user-circle fa-lg mr-2"></i>
+                        <a className="nav-link dropdown-toggle d-flex align-items-center" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            
+                                <div className="mr-2" style={{width: '40px'}}>
+                                    <AvatarContainer url={currentUserInfo.avatar} />
+                                </div>
                                 {currentUserInfo && currentUserInfo.name}
-                            </span>
+                            
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                             {/* <Link className="dropdown-item py-0  pl-2" to="/username/tasks">
