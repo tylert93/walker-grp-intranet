@@ -19,7 +19,8 @@ import AddressBook from '../components/views/tools/AddressBook';
 import PrivateRoute from '../middleware/PrivateRoute';
 import NASUWTPayScales from '../components/views/tools/NASUWTPayScales';
 import AdminRoute from '../middleware/AdminRoute';
-import AdminPanel from '../components/AdminPanel';
+import AdminPanelIndex from '../components/views/admin-panel/index';
+import AdminPanelView from '../components/views/admin-panel/view';
 
 const Routes = () => {
     
@@ -50,7 +51,8 @@ const Routes = () => {
 
                 <PrivateRoute exact path="/username/tasks" component={Tasks} />
 
-                <AdminRoute exact path="/username/admin-panel" component={AdminPanel} />
+                <AdminRoute exact path="/admin-panel" component={AdminPanelIndex} />
+                <AdminRoute exact path="/admin-panel/:_name" component={AdminPanelView} />
 
             </Switch>
         </Router>

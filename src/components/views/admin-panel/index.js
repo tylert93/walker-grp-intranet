@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Wrapper from './partials/Wrapper';
-import ViewHeader from '../components/misc/ViewHeader';
+import Wrapper from '../../partials/Wrapper';
+import ViewHeader from '../../misc/ViewHeader';
 import { Spinner, CardGroup, Card, Button } from 'react-bootstrap';
-import { db } from '../services/firebase';
+import { db } from '../../../services/firebase';
+import AvatarContainer from '../../misc/AvatarContainer';
+import { Link } from 'react-router-dom';
+import { v4 } from 'uuid';
 
-const AdminPanel = () => {
+const AdminPanelIndex = () => {
 
     const [users, setUsers] = useState('fetching')
 
@@ -52,20 +55,27 @@ const AdminPanel = () => {
 
                     return(
 
-                        <CardGroup className="col-3 p-4">
+                        <CardGroup key={v4()} className="col-12 col-sm-6 col-md-4 col-lg-3 p-5 p-sm-4">
 
                             <Card className="box-shadow">
 
                                 <Card.Body className="pb-0">
                                     <h5 className="card-title">{user.name}</h5>
-                                    <img className="img-fluid rounded-circle p-2" src={user.avatar} alt={user.name} />
+                                    <div className="p-3">
+                                        <AvatarContainer url={user.avatar} />
+                                    </div>
                                 </Card.Body>
 
                                 <Card.Footer className="d-flex justify-content-end bg-white border border-white">
-                                    <Button variant="primary" size="sm">
-                                        <i class="fas fa-external-link-alt mr-2"></i>
-                                        Open
-                                    </Button>
+                                    <Link to={{
+                                        pathname: `/admin-panel/${user.name.replace(/\s+/g, '-').toLowerCase()}`,
+                                        state:{email: user.email}
+                                    }}>
+                                        <Button variant="primary" size="sm">
+                                            <i className="fas fa-external-link-alt mr-2"></i>
+                                            View
+                                        </Button>
+                                    </Link>
                                 </Card.Footer>
 
                             </Card>
@@ -88,7 +98,7 @@ const AdminPanel = () => {
 
             <ViewHeader title="Admin Panel" />
 
-            <div className="row">
+            <div className="row d-flex justify-content-center">
                 {renderContent()}
             </div>
 
@@ -98,4 +108,4 @@ const AdminPanel = () => {
 
 }
 
-export default AdminPanel
+export default AdminPanelIndex

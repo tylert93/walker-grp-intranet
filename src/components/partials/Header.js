@@ -63,7 +63,7 @@ const Header = () => {
                             <div className="dropdown-divider"></div>
 
                             {currentUserInfo.admin &&
-                            <Link className="dropdown-item py-0 pl-2" to="/username/admin-panel">
+                            <Link className="dropdown-item py-0 pl-2" to="/admin-panel">
                                 <i className="fas fa-unlock-alt mr-2 text-muted"></i>
                                 Admin Panel
                             </Link>}

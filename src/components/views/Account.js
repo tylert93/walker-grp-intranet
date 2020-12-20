@@ -18,9 +18,9 @@ const Account = () => {
 
             <ViewHeader title="Account" />
 
-            <div className="row mb-3">
+            <div className="row px-4 px-md-0 mb-3">
 
-                <div className="col-3">
+                <div className="col-12  col-md-5 col-lg-4 col-xl-3 px-5 px-md-0">
 
                     <AvatarContainer url={currentUserInfo.avatar} />
 
@@ -30,7 +30,7 @@ const Account = () => {
 
                 </div>
 
-                <div className="col-9 pl-5">
+                <div className="col-12 col-md-7 col-lg-8 col-xl-9 pl-md-5 mt-5 mt-md-0">
 
                     <h4 className="card-title">Role Profile</h4>
 
@@ -51,9 +51,9 @@ const Account = () => {
 
             </div>
 
-            <div className="row mt-4">
+            <div className="row px-4 px-md-0 mt-4">
 
-                <CardGroup className="col-6 card-group p-3">
+                <CardGroup className="col-12 col-md-6 card-group p-3">
 
                     <Card className="card box-shadow">
 
@@ -85,7 +85,7 @@ const Account = () => {
                     
                 </CardGroup>
 
-                <CardGroup className="col-6 p-3">
+                <CardGroup className="col-12 col-md-6 p-3">
 
                     <Card className="box-shadow">
 
