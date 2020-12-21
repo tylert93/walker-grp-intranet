@@ -38,11 +38,13 @@ const Header = () => {
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle d-flex align-items-center" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
+                                {currentUserInfo &&
+                                <>
                                 <div className="mr-2" style={{width: '40px'}}>
                                     <AvatarContainer url={currentUserInfo.avatar} />
                                 </div>
-                                {currentUserInfo && currentUserInfo.name}
-                            
+                                <span>{currentUserInfo.name}</span>
+                                </>}
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                             {/* <Link className="dropdown-item py-0  pl-2" to="/username/tasks">
@@ -60,14 +62,16 @@ const Header = () => {
                                 Account
                             </Link>
 
-                            <div className="dropdown-divider"></div>
-
+                            
                             {currentUserInfo.admin &&
+                            <>
+                            <div className="dropdown-divider"></div>
                             <Link className="dropdown-item py-0 pl-2" to="/admin-panel">
                                 <i className="fas fa-unlock-alt mr-2 text-muted"></i>
                                 Admin Panel
-                            </Link>}
-
+                            </Link>
+                            </>}
+                            
                             <div className="dropdown-divider"></div>
 
                             <div onClick={handleLogout} className="dropdown-item pointer py-0 pl-2">
