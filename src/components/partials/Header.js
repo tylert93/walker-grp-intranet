@@ -61,7 +61,6 @@ const Header = () => {
                                 <i className="fas fa-cog mr-2 text-muted"></i>
                                 Account
                             </Link>
-
                             
                             {currentUserInfo.admin &&
                             <>

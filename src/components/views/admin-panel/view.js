@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Wrapper from '../../partials/Wrapper';
 import ViewHeader from '../../misc/ViewHeader';
-import { Card, CardGroup, Spinner } from 'react-bootstrap';
+import { Card, CardGroup, Spinner, Button } from 'react-bootstrap';
 import { db } from '../../../services/firebase';
 import AvatarContainer from '../../misc/AvatarContainer';
 import { toast } from 'react-toastify';
@@ -42,6 +43,19 @@ const AdminPanelView = (props) => {
 
         if(user){
             return(<>
+
+                <div className="d-flex justify-content-end">
+                    <Link to={{
+                        pathname: `/admin-panel/${user.name.replace(/\s+/g, '-').toLowerCase()}/edit`,
+                        state:{user: user}
+                    }}>
+                        <Button className="ml-auto" variant="primary" size="sm" >
+                            <i class="fas fa-pencil-alt mr-2"></i>
+                            Edit details
+                        </Button>
+                    </Link>  
+                </div>
+
                 <div className="row px-4 px-md-0 mb-3">
 
                     <div className="col-12  col-md-5 col-lg-4 col-xl-3 px-5 px-md-0">

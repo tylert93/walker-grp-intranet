@@ -21,6 +21,7 @@ import NASUWTPayScales from '../components/views/tools/NASUWTPayScales';
 import AdminRoute from '../middleware/AdminRoute';
 import AdminPanelIndex from '../components/views/admin-panel/index';
 import AdminPanelView from '../components/views/admin-panel/view';
+import AdminPanelEdit from '../components/views/admin-panel/edit';
 
 const Routes = () => {
     
@@ -53,6 +54,7 @@ const Routes = () => {
 
                 <AdminRoute exact path="/admin-panel" component={AdminPanelIndex} />
                 <AdminRoute exact path="/admin-panel/:_name" component={AdminPanelView} />
+                <AdminRoute exact path="/admin-panel/:_name/edit" component={AdminPanelEdit} />
 
             </Switch>
         </Router>

@@ -34,6 +34,7 @@ export const AuthProvider = ({children}) => {
 
         db.collection('users').doc(email)
             .set({
+                avatar: 'https://firebasestorage.googleapis.com/v0/b/wg-intranet.appspot.com/o/avatars%2Ftom.tyler%40walkergrp.co.uk?alt=media&token=1666db53-699f-47b3-8d05-fb3fdeced3bf',
                 admin: admin,
                 contactInfo: {
                     direct: '-',
@@ -52,10 +53,7 @@ export const AuthProvider = ({children}) => {
                 manages:[],
                 name: name,
                 roleTitle: '-',
-                roleScope:'-'
-               
-               
-                
+                roleScope:'-'   
                 
             });
     }
