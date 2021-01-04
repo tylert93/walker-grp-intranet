@@ -16,7 +16,7 @@ const AdminRoute = ({ component: Component, ...rest}) => {
                     )
                 } else {
                     return(
-                        <Redirect to="/home" />
+                        <Redirect to="/" />
                     )
                 }
             }}

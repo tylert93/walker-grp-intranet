@@ -62,14 +62,17 @@ const Header = () => {
                                 Account
                             </Link>
                             
-                            {currentUserInfo.admin &&
+                            {currentUserInfo && currentUserInfo.admin ?
                             <>
                             <div className="dropdown-divider"></div>
                             <Link className="dropdown-item py-0 pl-2" to="/admin-panel">
                                 <i className="fas fa-unlock-alt mr-2 text-muted"></i>
                                 Admin Panel
                             </Link>
-                            </>}
+                            </>
+                            :
+                            <></>
+                            }
                             
                             <div className="dropdown-divider"></div>
 

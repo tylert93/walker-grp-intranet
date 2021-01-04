@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { auth, db } from '../services/firebase';
 import { toast } from 'react-toastify';
+import firebase from 'firebase';
 
 const AuthContext = React.createContext();
 
@@ -72,30 +73,23 @@ export const AuthProvider = ({children}) => {
 
     useEffect( () =>{
 
-        const unsubcribe = auth.onAuthStateChanged(async user => {
-
-            setCurrentUser(user)
-
-            if(user){
-
-                try{
-                    const test = await db.collection('users').doc(user.email).get()
-                    setCurrentUserInfo(test.data())
-                }catch(error) {
-                    toast.error("Could not find user information", {autoClose:false, position: toast.POSITION.TOP_CENTER})
+       auth.onAuthStateChanged(user => {
+             setCurrentUser(user)
+             setLoading(false)
+             
+            db.collection('users').doc(user.email)
+                .get()
+                .then(doc => {
+                   setCurrentUserInfo(doc.data())
+                })
+                .catch(error => {
                     console.log(error)
-                }
-
-            }
-
-            setLoading(false)
-              
-           
+                })
         });
      
-        return unsubcribe
+      
 
-    }, [])
+     }, [])
 
     const value = {
         currentUser,

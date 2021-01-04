@@ -22,7 +22,7 @@ const handleSubmit = async (e) => {
     try{
         setLoading(true);
         await logUserIn(emailRef.current.value, passwordRef.current.value);
-        history.push("/home");
+        history.push("/");
     } catch(error) {
         toast.error("Your details didn't match our records", {autoClose:false, position: toast.POSITION.TOP_CENTER})
         console.log(error)
