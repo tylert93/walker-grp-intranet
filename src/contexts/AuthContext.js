@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { auth, db } from '../services/firebase';
 import { toast } from 'react-toastify';
-import firebase from 'firebase';
 
 const AuthContext = React.createContext();
 
