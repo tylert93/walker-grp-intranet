@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Wrapper from '../../partials/Wrapper';
 import ViewHeader from '../../misc/ViewHeader';
 import { Card, CardGroup, Spinner, Button } from 'react-bootstrap';
@@ -10,11 +10,12 @@ import { toast } from 'react-toastify';
 const AdminPanelView = (props) => {
 
     const [user, setUser] = useState('fetching')
+    let { _userId } = useParams()
 
     const fetchUser = async() => {
 
         try{
-            const fetchInfo = await db.collection('users').doc(props.location.state.email).get()
+            const fetchInfo = await db.collection('users').doc(_userId).get()
             setUser(fetchInfo.data())
         } catch(error){
             setUser('')
@@ -45,10 +46,7 @@ const AdminPanelView = (props) => {
             return(<>
 
                 <div className="d-flex justify-content-end">
-                    <Link to={{
-                        pathname: `/admin-panel/${user.name.replace(/\s+/g, '-').toLowerCase()}/edit`,
-                        state:{user: user}
-                    }}>
+                    <Link to={`/admin-panel/${_userId}/edit`}>
                         <Button className="ml-auto" variant="primary" size="sm" >
                             <i class="fas fa-pencil-alt mr-2"></i>
                             Edit details

@@ -20,7 +20,9 @@ const Header = () => {
 
     }
     
-    return (
+    return (<>
+        {currentUserInfo &&
+
         <nav className="navbar navbar-expand-md navbar-light bg-transparent px-5">
             
             <Link className="navbar-brand" to="/home">
@@ -38,13 +40,11 @@ const Header = () => {
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle d-flex align-items-center" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
-                                {currentUserInfo &&
-                                <>
-                                <div className="mr-2" style={{width: '40px'}}>
-                                    <AvatarContainer url={currentUserInfo.avatar} />
-                                </div>
-                                <span>{currentUserInfo.name}</span>
-                                </>}
+                            <div className="mr-2" style={{width: '40px'}}>
+                                <AvatarContainer url={currentUserInfo.avatar} />
+                            </div>
+                            <span>{currentUserInfo.name}</span>
+                                
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                             {/* <Link className="dropdown-item py-0  pl-2" to="/username/tasks">
@@ -57,12 +57,12 @@ const Header = () => {
                                 Goals
                             </Link>
                             <div className="dropdown-divider"></div> */}
-                            <Link className="dropdown-item py-0 pl-2" to="/username/account">
+                            <Link className="dropdown-item py-0 pl-2" to={`/${currentUserInfo.id}/account`}>
                                 <i className="fas fa-cog mr-2 text-muted"></i>
                                 Account
                             </Link>
                             
-                            {currentUserInfo && currentUserInfo.admin ?
+                            {currentUserInfo.admin &&
                             <>
                             <div className="dropdown-divider"></div>
                             <Link className="dropdown-item py-0 pl-2" to="/admin-panel">
@@ -70,8 +70,6 @@ const Header = () => {
                                 Admin Panel
                             </Link>
                             </>
-                            :
-                            <></>
                             }
                             
                             <div className="dropdown-divider"></div>
@@ -108,7 +106,8 @@ const Header = () => {
             
             </div>
         </nav>
-    )
+        }
+    </>)
     
     
 }

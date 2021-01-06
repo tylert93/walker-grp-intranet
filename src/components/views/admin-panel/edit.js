@@ -1,28 +1,49 @@
-import React, {useState} from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Form, Button, Spinner } from 'react-bootstrap';
 import Wrapper from '../../partials/Wrapper';
 import ViewHeader from '../../misc/ViewHeader';
 import { db } from '../../../services/firebase';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const AdminPanelEdit = (props) => {
 
-    const user = props.location.state.user;
-    const [loading, setLoading] = useState(false);
+    const [user, setUser] = useState('fetching')
+    const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const { _userId } = useParams()
+
+    const fetchUser = async () => {
+        try{
+            const fetchInfo = await db.collection('users').doc(_userId).get()
+            setUser(fetchInfo.data())
+            setContactInfoDirect(fetchInfo.data().contactInfo.direct)
+            setContactInfoExt(fetchInfo.data().contactInfo.ext)
+            setContactInfoPersonalEmail(fetchInfo.data().contactInfo.personalEmail)
+            setContactInfoMobile(fetchInfo.data().contactInfo.mobile)
+            setEmergencyContactName(fetchInfo.data().emergencyContact.name)
+            setEmergencyContactEmail(fetchInfo.data().emergencyContact.email)
+            setEmergencyContactMobile(fetchInfo.data().emergencyContact.mobile)
+            setRoleTitle(fetchInfo.data().roleTitle)
+            setRoleScope(fetchInfo.data().roleScope)
+        } catch(error){
+            setUser('')
+            toast.error("Could not find user information", {autoClose:false, position: toast.POSITION.TOP_CENTER})
+            console.log(error)
+        }
+    }
     
-    const [contactInfoDirect, setContactInfoDirect] = useState(user.contactInfo.direct)
-    const [contactInfoExt, setContactInfoExt] = useState(user.contactInfo.ext)
-    const [contactInfoPersonalEmail, setContactInfoPersonalEmail] = useState(user.contactInfo.personalEmail)
-    const [contactInfoMobile, setContactInfoMobile] = useState(user.contactInfo.mobile)
-    const [emergencyContactName, setEmergencyContactName] = useState(user.emergencyContact.name)
-    const [emergencyContactEmail, setEmergencyContactEmail] = useState(user.emergencyContact.email)
-    const [emergencyContactMobile, setEmergencyContactMobile] = useState(user.emergencyContact.mobile)
-    const [manager, setManager] = useState(user.manager)
-    const [manages, setManages] = useState(user.manages)
-    const [roleTitle, setRoleTitle] = useState(user.roleTitle)
-    const [roleScope, setRoleScope] = useState(user.roleScope)
+    const [contactInfoDirect, setContactInfoDirect] = useState()
+    const [contactInfoExt, setContactInfoExt] = useState()
+    const [contactInfoPersonalEmail, setContactInfoPersonalEmail] = useState()
+    const [contactInfoMobile, setContactInfoMobile] = useState()
+    const [emergencyContactName, setEmergencyContactName] = useState()
+    const [emergencyContactEmail, setEmergencyContactEmail] = useState()
+    const [emergencyContactMobile, setEmergencyContactMobile] = useState()
+    const [manager, setManager] = useState()
+    const [manages, setManages] = useState()
+    const [roleTitle, setRoleTitle] = useState()
+    const [roleScope, setRoleScope] = useState()
 
     const changeContactInfoDirect = (e) => {
         setContactInfoDirect(e.target.value)
@@ -64,7 +85,7 @@ const AdminPanelEdit = (props) => {
 
         setLoading(true)
 
-        await db.collection('users').doc(user.email).update({
+        await db.collection('users').doc(_userId).update({
             "contactInfo.direct":contactInfoDirect,
             "contactInfo.ext":contactInfoExt,
             "contactInfo.personalEmail":contactInfoPersonalEmail,
@@ -75,10 +96,7 @@ const AdminPanelEdit = (props) => {
             "roleScope":roleScope,
         })
         .then(() => {
-            history.push({
-                pathname:`/admin-panel/${user.name.replace(/\s+/g, '-').toLowerCase()}`,
-                state:{user:user}
-            })
+            history.push(`/admin-panel/${_userId}`)
         })
         .catch(error => {
             console.log(error)
@@ -90,6 +108,16 @@ const AdminPanelEdit = (props) => {
     }
 
     const renderContent = () => {
+
+        if(user === 'fetching'){
+            return(
+                <div className="d-flex justify-content-center">
+                    <Spinner className="bg-yellow" animation="grow" style={{backgroundColor: '#ffcb00'}} />
+                    <Spinner className="bg-light-blue mx-3" animation="grow" style={{backgroundColor: '#83ceea'}} />
+                    <Spinner className="bg-torquise" animation="grow" style={{backgroundColor: '#6ebfa2'}} />
+                </div>
+            )
+        }
 
         if(!user){
             return(
@@ -161,6 +189,12 @@ const AdminPanelEdit = (props) => {
         }
 
     }
+
+    useEffect(() => {
+
+        fetchUser()
+
+    }, [])
 
     return(
 

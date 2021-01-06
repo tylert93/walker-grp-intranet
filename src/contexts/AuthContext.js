@@ -62,7 +62,9 @@ export const AuthProvider = ({children}) => {
 
         try{
             const fetchUser = await db.collection('users').doc(currentUser.email).get()
-            setCurrentUserInfo(fetchUser.data())
+            let values = fetchUser.data()
+            values.id = fetchUser.id
+            setCurrentUserInfo(values)
         }catch(error) {
             toast.error("Could not find user information", {autoClose:false, position: toast.POSITION.TOP_CENTER})
             console.log(error)
@@ -79,7 +81,9 @@ export const AuthProvider = ({children}) => {
             db.collection('users').doc(user.email)
                 .get()
                 .then(doc => {
-                   setCurrentUserInfo(doc.data())
+                    let values = doc.data()
+                    values.id = doc.id 
+                   setCurrentUserInfo(values)
                 })
                 .catch(error => {
                     console.log(error)

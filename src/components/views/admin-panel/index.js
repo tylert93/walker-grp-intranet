@@ -17,7 +17,9 @@ const AdminPanelIndex = () => {
         .then(querySnapshot => {
             let usersArray =[]
             querySnapshot.forEach(doc => {
-                usersArray.push(doc.data())
+                let values = doc.data()
+                values.id = doc.id
+                usersArray.push(values)
             })
             setUsers(usersArray)
         })
@@ -67,10 +69,7 @@ const AdminPanelIndex = () => {
                                 </Card.Body>
 
                                 <Card.Footer className="d-flex justify-content-end bg-white border border-white">
-                                    <Link to={{
-                                        pathname: `/admin-panel/${user.name.replace(/\s+/g, '-').toLowerCase()}`,
-                                        state:{email: user.email}
-                                    }}>
+                                    <Link to={`/admin-panel/${user.id}`}>
                                         <Button variant="primary" size="sm">
                                             <i className="fas fa-external-link-alt mr-2"></i>
                                             View

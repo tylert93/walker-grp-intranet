@@ -35,8 +35,6 @@ const Routes = () => {
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/reset-password" component={Reset} />
 
-               
-
                 <PrivateRoute exact path="/tools" component={Tools} />
                 <PrivateRoute exact path="/tools/payroll-calculator" component={PayrollCalculator} />
                 <PrivateRoute exact path="/tools/permanent-deal" component={PermDeal} />
@@ -46,7 +44,7 @@ const Routes = () => {
                 <PrivateRoute exact path="/tools/NASUWT-pay-scales" component={NASUWTPayScales} />
 
 
-                <PrivateRoute exact path="/username/account" component={Account} />
+                <PrivateRoute exact path="/:_userId/account" component={Account} />
                 <PrivateRoute exact path="/username/goals" component={GoalIndex} />
                 <PrivateRoute exact path="/username/goals/new" component={GoalNew} />
                 <PrivateRoute exact path="/username/goals/:_id" component={GoalShow} />
@@ -55,8 +53,8 @@ const Routes = () => {
                 <PrivateRoute exact path="/username/tasks" component={Tasks} />
 
                 <AdminRoute exact path="/admin-panel" component={AdminPanelIndex} />
-                <AdminRoute exact path="/admin-panel/:_name" component={AdminPanelView} />
-                <AdminRoute exact path="/admin-panel/:_name/edit" component={AdminPanelEdit} />
+                <AdminRoute exact path="/admin-panel/:_userId" component={AdminPanelView} />
+                <AdminRoute exact path="/admin-panel/:_userId/edit" component={AdminPanelEdit} />
 
             </Switch>
         </Router>
