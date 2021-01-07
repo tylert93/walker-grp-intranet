@@ -97,11 +97,6 @@ const Header = () => {
                         <Link className="nav-link" to="#">Notices</Link>
                     </li> */}
 
-                    {/* <form className="form-inline my-2 my-md-0 ml-0 ml-md-3">
-                        <input className="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-                        <button className="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form> */}
-
                 </ul>
             
             </div>

@@ -71,12 +71,16 @@ const AdminPanelView = (props) => {
                             {user.roleTitle}
                         </div>
                         <div className="my-2">
+                            <h5>Scope: </h5>
+                            {user.roleScope}
+                        </div>
+                        <div className="my-2">
                             <h5>Manager: </h5>
                             {user.manager}
                         </div>
                         <div className="my-2">
-                            <h5>Scope: </h5>
-                            {user.roleScope}
+                            <h5>Manages: </h5>
+                            {user.manages}
                         </div>
 
                     </div>

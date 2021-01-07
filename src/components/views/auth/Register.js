@@ -35,7 +35,7 @@ const handleSubmit = async (e) => {
         setLoading(true);
         await signUpUser(emailRef.current.value.toLowerCase(), passwordRef.current.value);
         createUser(emailRef.current.value, nameRef.current.value, admin)
-        history.push('/home')
+        history.push('/')
     } catch(error){
         toast.error(error.message, {autoClose:false, position: toast.POSITION.TOP_CENTER})
         console.log(error)
@@ -84,7 +84,7 @@ const handleSubmit = async (e) => {
 
                         </Form>
 
-                        <div className="text-center mt-3">Go back to the homepage <Link to="/home">here</Link></div>
+                        <div className="text-center mt-3">Go back to the homepage <Link to="/">here</Link></div>
 
                     </Card.Body>
                 </Card>
