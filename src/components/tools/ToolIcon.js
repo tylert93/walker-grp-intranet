@@ -18,7 +18,7 @@ const ToolIcon = (props) => {
                             
                         </div>
 
-                        <h5 className="text-center mt-0 mb-4">{props.title}</h5> 
+                        <h5 className="text-center text-shadow mt-0 mb-4">{props.title}</h5> 
                     </Link>
                 </Card>
             

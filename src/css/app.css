@@ -1,5 +1,5 @@
 html{
-    word-spacing: 0.3rem;
+    word-spacing: 0.1rem;
 }
 
 .view-container{
@@ -53,6 +53,10 @@ html{
 
 .pointer{
     cursor: pointer;
+}
+
+.text-shadow{
+    text-shadow: 2px 2px #333;
 }
 
 .ball{

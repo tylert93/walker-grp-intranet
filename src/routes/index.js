@@ -22,6 +22,8 @@ import AdminRoute from '../middleware/AdminRoute';
 import AdminPanelIndex from '../components/views/admin-panel/index';
 import AdminPanelView from '../components/views/admin-panel/view';
 import AdminPanelEdit from '../components/views/admin-panel/edit';
+import ManagersPanelIndex from '../components/views/managers-panel/index';
+import ManagersPanelView from '../components/views/managers-panel/view';
 
 const Routes = () => {
     
@@ -45,16 +47,19 @@ const Routes = () => {
 
 
                 <PrivateRoute exact path="/:_userId/account" component={Account} />
-                <PrivateRoute exact path="/username/goals" component={GoalIndex} />
-                <PrivateRoute exact path="/username/goals/new" component={GoalNew} />
-                <PrivateRoute exact path="/username/goals/:_id" component={GoalShow} />
-                <PrivateRoute exact path="/username/goals/:_id/edit" component={GoalEdit} />
+                <PrivateRoute exact path="/:_userId/goals" component={GoalIndex} />
+                <PrivateRoute exact path="/:_userId/goals/new" component={GoalNew} />
+                <PrivateRoute exact path="/:_userId/goals/:_goalId" component={GoalShow} />
+                <PrivateRoute exact path="/:_userId/goals/:_goalId/edit" component={GoalEdit} />
 
                 <PrivateRoute exact path="/username/tasks" component={Tasks} />
 
                 <AdminRoute exact path="/admin-panel" component={AdminPanelIndex} />
                 <AdminRoute exact path="/admin-panel/:_userId" component={AdminPanelView} />
                 <AdminRoute exact path="/admin-panel/:_userId/edit" component={AdminPanelEdit} />
+
+                <PrivateRoute exact path="/managers-panel" component={ManagersPanelIndex} />
+                <PrivateRoute exact path="/managers-panel/:_userId" component={ManagersPanelView} />
 
             </Switch>
         </Router>

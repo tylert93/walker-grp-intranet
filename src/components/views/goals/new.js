@@ -2,71 +2,37 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from '../../../services/firebase';
 import Wrapper from '../../partials/Wrapper';
+import { useParams } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
 import ViewHeader from '../../misc/ViewHeader';
 import '../../../css/goals/create.css';
 
 const CreateGoals = (props) =>{
 
-    const { currentUser } = useAuth();
-    const [goalOneText, setGoalOneText] = useState()
-    const [goalTwoText, setGoalTwoText] = useState()
-    const [goalThreeText, setGoalThreeText] = useState()
+    const [goalText, setGoalText] = useState()
+    const { _userId } = useParams()
 
-    const onGoalOneChange = (value) => {
-        setGoalOneText(value);
+    const onGoalChange = (value) => {
+        setGoalText(value);
     }
 
-    const onGoalTwoChange = (value) => {
-        setGoalTwoText(value);
-    }
-
-    const onGoalThreeChange = (value) => {
-        setGoalThreeText(value);
-    }
-
-    const createNewGoals = () => {
+    const createNewGoal = () => {
 
         try{
 
             db.collection('goals')
             .add({
-                userId: currentUser.email,
+                userId: _userId,
                 created: new Date(),
-                text: goalOneText,
+                text: goalText,
                 rating: null,
                 comments: {
                     author: '',
                     supervisor: ''
                 },
                 complete: false
-            })
-
-            db.collection('goals')
-            .add({
-                userId: props.username,
-                created: new Date(),
-                text: goalTwoText,
-                rating: null,
-                comments: {
-                    author: '',
-                    supervisor: ''
-                },
-                complete: false
-            })
-                
-            db.collection('goals')
-            .add({
-                userId: props.username,
-                created: new Date(),
-                text: goalThreeText,
-                rating: null,
-                comments: {
-                    employee: '',
-                    supervisor: ''
-                },
-                complete: false
-            })
+            }) 
+           
 
         } catch(error) {
             console.log(error)
@@ -82,24 +48,23 @@ const CreateGoals = (props) =>{
 
             <div className="row">
 
+                <div className="d-flex justify-content-end w-100 mb-3">
+                    <Link to={`/${_userId}/goals`}>
+                        <button type="button" className="btn btn-success">
+                            <i className="fas fa-arrow-left mr-2"></i>
+                            Back to goals 
+                        </button>
+                    </Link>
+                </div>
+
                 <div className="form-container col-10 mx-auto">
                     <form>
                         <div className="form-group">
-                            <label htmlFor="goal-1"><strong>Goal #1</strong></label>
-                            <textarea className="form-control" id="goal-1" aria-describedby="goal-1" value={goalOneText} onChange={e => {onGoalOneChange(e.target.value)}}></textarea>
+                            <label htmlFor="goal-1"><strong>Goal</strong></label>
+                            <textarea className="form-control" id="goal-1" aria-describedby="goal-1" value={goalText} onChange={e => {onGoalChange(e.target.value)}}></textarea>
                         </div>
-                        <br/>
-                        <div className="form-group">
-                            <label htmlFor="goal-2"><strong>Goal #2</strong></label>
-                            <textarea className="form-control" id="goal-2" aria-describedby="goal-2" value={goalTwoText} onChange={e => {onGoalTwoChange(e.target.value)}}></textarea>
-                        </div>
-                        <br/>
-                        <div className="form-group">
-                            <label htmlFor="goal-3"><strong>Goal #3</strong></label>
-                            <textarea className="form-control" id="goal-3" aria-describedby="goal-3" value={goalThreeText} onChange={e => {onGoalThreeChange(e.target.value)}}></textarea>
-                        </div>
-                        <Link to="/username/goals">
-                            <button type="submit" className="btn btn-primary" onClick={createNewGoals}>Submit</button>
+                        <Link to={`/${_userId}/goals`}>
+                            <button type="submit" className="btn btn-primary" onClick={createNewGoal}>Create</button>
                         </Link>
                     </form>
                 </div>

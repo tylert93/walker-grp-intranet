@@ -1,7 +1,45 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import { db } from '../../services/firebase';
 
 const CurrGoalCard = (props) => {
+
+    const { _userId } = useParams()
+    const { currentUserInfo } = useAuth()
+    const [user, setUser] = useState()
+    
+    const fetchUser = async () => {
+
+        try{
+            const fetchInfo = await db.collection('users').doc(_userId).get()
+            setUser(fetchInfo.data())
+        }catch(error){
+            console.log(error)
+        }
+
+    }
+
+    const renderLink = (goalId) => {
+
+        if(user && user.manager === currentUserInfo.name){
+            return(
+                <Link to={`/${_userId}/goals/${goalId}/edit`}>
+                    <button type="button" className="btn btn-primary btn-sm">
+                        <i className="fas fa-graduation-cap mr-2"></i>
+                        Assess
+                    </button>
+                </Link>
+            )
+        }
+
+    }
+
+    useEffect(() => {
+
+        fetchUser()
+
+    }, [])
     
     return(
         
@@ -12,12 +50,9 @@ const CurrGoalCard = (props) => {
             </div>
             
             <div className="card-footer bg-white border border-white">
-                <Link to={`/username/goals/${props.id}/edit`}>
-                    <button type="button" class="btn btn-primary btn-sm">
-                        <i class="fas fa-graduation-cap mr-2"></i>
-                        Assess
-                    </button>
-                </Link>
+
+               {renderLink(props.id)}
+                
             </div>
             
         </div>

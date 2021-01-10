@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Spinner } from 'react-bootstrap';
+import { Switch } from "@blueprintjs/core";
 import Wrapper from '../../partials/Wrapper';
 import ViewHeader from '../../misc/ViewHeader';
 import { db } from '../../../services/firebase';
 import { useHistory, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { v4 } from 'uuid';
+import { useAuth } from '../../../contexts/AuthContext';
 
 const AdminPanelEdit = (props) => {
 
@@ -15,7 +17,9 @@ const AdminPanelEdit = (props) => {
     const [oldManager, setOldManager] = useState()
     const history = useHistory()
     const { _userId } = useParams()
+    const { currentUserInfo, updateCurrentUserInfo } = useAuth()
     
+    const [admin, setAdmin] = useState()
     const [contactInfoDirect, setContactInfoDirect] = useState()
     const [contactInfoExt, setContactInfoExt] = useState()
     const [contactInfoPersonalEmail, setContactInfoPersonalEmail] = useState()
@@ -32,6 +36,7 @@ const AdminPanelEdit = (props) => {
         try{
             const fetchInfo = await db.collection('users').doc(_userId).get()
             setUser(fetchInfo.data())
+            setAdmin(fetchInfo.data().admin)
             setContactInfoDirect(fetchInfo.data().contactInfo.direct)
             setContactInfoExt(fetchInfo.data().contactInfo.ext)
             setContactInfoPersonalEmail(fetchInfo.data().contactInfo.personalEmail)
@@ -61,6 +66,10 @@ const AdminPanelEdit = (props) => {
         }catch(error){
             console.log(error)
         }
+    }
+
+    const changeAdmin = () => {
+        setAdmin(!admin)
     }
 
     const changeContactInfoDirect = (e) => {
@@ -100,6 +109,11 @@ const AdminPanelEdit = (props) => {
     }
 
     const changeManager = (e) => {
+
+        if(e.target.value === user.name){
+            return toast.error("You cannot be your own manager", {autoClose:false, position: toast.POSITION.TOP_CENTER})
+        }
+
         setManager(e.target.value)
     }
 
@@ -109,6 +123,7 @@ const AdminPanelEdit = (props) => {
 
         try{
             await db.collection('users').doc(_userId).update({
+                "admin":admin,
                 "contactInfo.direct":contactInfoDirect,
                 "contactInfo.ext":contactInfoExt,
                 "contactInfo.personalEmail":contactInfoPersonalEmail,
@@ -120,7 +135,7 @@ const AdminPanelEdit = (props) => {
                 "manager":manager
             })
 
-            if(manager != 'None'){
+            if(manager !== 'None' && manager !== oldManager){
                 let managerData = await db.collection('users').where("name", "==", manager).get()
                 let managesArray = []
                 let managerId = null
@@ -136,7 +151,7 @@ const AdminPanelEdit = (props) => {
     
             }
 
-            if(oldManager != 'None'){
+            if(oldManager !== 'None' && manager !== oldManager){
                 let oldManagerData = await db.collection('users').where("name", "==", oldManager).get()
                 let oldManagesArray = []
                 let oldManagerId = null
@@ -162,6 +177,7 @@ const AdminPanelEdit = (props) => {
                 })
             }
 
+            updateCurrentUserInfo()
             history.push(`/admin-panel/${_userId}`)
 
         }catch(error){
@@ -256,6 +272,11 @@ const AdminPanelEdit = (props) => {
                                 return <option key={v4()}>{user}</option>
                             })}
                         </Form.Control>
+                    </Form.Group>
+
+                    <Form.Group id="password-confirm" className="d-flex flex-column mt-4">
+                        <Form.Label><h6>Admin privillages</h6></Form.Label>
+                        <Switch className="d-inline ml-3" large onChange={changeAdmin} checked={admin} innerLabelChecked="yes" innerLabel="no" />
                     </Form.Group>
 
                     <Button disabled={loading} className="w-100 sign-up-btn" onClick={handleSubmit} >Update</Button>

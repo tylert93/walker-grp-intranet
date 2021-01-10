@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import Wrapper from '../../partials/Wrapper';
+import { Card, CardGroup, Spinner } from 'react-bootstrap'
 import ViewHeader from '../../misc/ViewHeader';
-import { Card, CardGroup, Spinner, Button } from 'react-bootstrap';
-import { db } from '../../../services/firebase';
+import Wrapper from '../../partials/Wrapper';
 import AvatarContainer from '../../misc/AvatarContainer';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { db } from '../../../services/firebase';
+import ToolIcon from '../../tools/ToolIcon';
+import Ribbon from '../../../images/ribbon.svg';
+import '../../../css/managers-panel.css';
 
-const AdminPanelView = (props) => {
+const ManagersPanelView = () => {
 
     const [user, setUser] = useState('fetching')
     let { _userId } = useParams()
@@ -45,15 +48,6 @@ const AdminPanelView = (props) => {
         if(user){
             return(<>
 
-                <div className="d-flex justify-content-end">
-                    <Link to={`/admin-panel/${_userId}/edit`}>
-                        <Button className="ml-auto" variant="primary" size="sm" >
-                            <i class="fas fa-pencil-alt mr-2"></i>
-                            Edit details
-                        </Button>
-                    </Link>  
-                </div>
-
                 <div className="row px-4 px-md-0 mb-3">
 
                     <div className="col-12  col-md-5 col-lg-4 col-xl-3 px-5 px-md-0">
@@ -86,6 +80,12 @@ const AdminPanelView = (props) => {
                         </div>
 
                     </div>
+
+                </div>
+
+                <div className="row ">
+
+                    <ToolIcon svg={Ribbon} colour="juicy-orange" Alt="Goals" to={`/${_userId}/goals`} title="Goals"/>
 
                 </div>
 
@@ -156,17 +156,15 @@ const AdminPanelView = (props) => {
     }, [])
 
     return(
-
         <Wrapper>
 
-            <ViewHeader title="Admin Panel" />
+            <ViewHeader title={"Manager's Panel"} />
 
             {renderContent()}
 
         </Wrapper>
-
     )
 
 }
 
-export default AdminPanelView
+export default ManagersPanelView 

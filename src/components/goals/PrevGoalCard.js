@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { v4 } from 'uuid';
 
 const PrevGoalCard = (props) => {
+
+    const { _userId } = useParams()
     
     return(
         
@@ -14,7 +17,7 @@ const PrevGoalCard = (props) => {
                         [
                             ...Array(props.rating),
                         ].map(() => (   
-                            <span className="fa fa-star text-warning"></span>   
+                            <span key={v4()} className="fa fa-star text-warning"></span>   
                         ))
                     }   
                     <small className="ml-3">{props.rating}/5</small>
@@ -31,8 +34,8 @@ const PrevGoalCard = (props) => {
             </div>
             
             <div className="card-footer bg-white border border-white">
-                <Link to={`/username/goals/${props.id}`}>
-                    <button type="button" class="btn btn-primary btn-sm">
+                <Link to={`/${_userId}/goals/${props.id}`}>
+                    <button type="button" className="btn btn-primary btn-sm">
                         <i className="fas fa-glasses mr-2"></i>
                         Read more
                     </button>

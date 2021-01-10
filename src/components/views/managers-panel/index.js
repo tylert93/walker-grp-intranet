@@ -6,15 +6,17 @@ import { db } from '../../../services/firebase';
 import AvatarContainer from '../../misc/AvatarContainer';
 import { Link } from 'react-router-dom';
 import { v4 } from 'uuid';
+import { useAuth } from '../../../contexts/AuthContext';
 
-const AdminPanelIndex = () => {
+const ManagersPanelIndex = () => {
 
     const [users, setUsers] = useState('fetching')
+    const { currentUserInfo } = useAuth()
 
-    useEffect(() => {
+    const fetchUsers = async () => {
 
-        db.collection('users').get()
-        .then(querySnapshot => {
+        try{
+            let querySnapshot = await db.collection('users').where("manager", "==", currentUserInfo.name).get()
             let usersArray =[]
             querySnapshot.forEach(doc => {
                 let values = doc.data()
@@ -22,10 +24,15 @@ const AdminPanelIndex = () => {
                 usersArray.push(values)
             })
             setUsers(usersArray)
-        })
-        .catch(error => {
+        }catch(error){
             console.log(error)
-        })
+        }
+
+    }
+
+    useEffect(() => {
+
+        fetchUsers()
 
     }, [])
 
@@ -68,19 +75,8 @@ const AdminPanelIndex = () => {
                                     </div>
                                 </Card.Body>
 
-                                <Card.Footer className="d-flex justify-content-between bg-white border border-white">
-
-                                    <div className="d-flex align-items-end">
-                                        {user.admin &&
-                                            <i className="fas fa-unlock-alt fa-lg justify-self-start mr-3 text-muted"></i>
-                                        }
-
-                                        {user.manages.length > 0 &&
-                                            <i className="fas fa-id-badge fa-lg justify-self-start text-muted"></i>
-                                        }
-                                    </div>
-
-                                    <Link to={`/admin-panel/${user.id}`}>
+                                <Card.Footer className="d-flex justify-content-end bg-white border border-white">
+                                    <Link to={`/managers-panel/${user.id}`}>
                                         <Button variant="primary" size="sm">
                                             <i className="fas fa-external-link-alt mr-2"></i>
                                             View
@@ -106,7 +102,7 @@ const AdminPanelIndex = () => {
 
         <Wrapper>
 
-            <ViewHeader title="Admin Panel" />
+            <ViewHeader title="Manager's Panel" />
 
             <div className="row d-flex justify-content-start">
                 {renderContent()}
@@ -118,4 +114,4 @@ const AdminPanelIndex = () => {
 
 }
 
-export default AdminPanelIndex
+export default ManagersPanelIndex

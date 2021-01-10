@@ -39,12 +39,18 @@ const Account = () => {
                         {currentUserInfo.roleTitle}
                     </div>
                     <div className="my-2">
+                        <h5>Scope: </h5>
+                        {currentUserInfo.roleScope}
+                    </div>
+                    <div className="my-2">
                         <h5>Manager: </h5>
                         {currentUserInfo.manager}
                     </div>
                     <div className="my-2">
-                        <h5>Scope: </h5>
-                        {currentUserInfo.roleScope}
+                        <h5>Manages: </h5>
+                        {currentUserInfo.manages.map(employee => {
+                            return `${employee}, `
+                        })}
                     </div>
 
                 </div>

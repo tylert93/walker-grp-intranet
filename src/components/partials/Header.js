@@ -25,7 +25,7 @@ const Header = () => {
 
         <nav className="navbar navbar-expand-md navbar-light bg-transparent px-5">
             
-            <Link className="navbar-brand" to="/home">
+            <Link className="navbar-brand" to="/">
                 <img src={Logo} width="90" alt="Walker Group Logo"></img>
             </Link>
 
@@ -47,20 +47,26 @@ const Header = () => {
                                 
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {/* <Link className="dropdown-item py-0  pl-2" to="/username/tasks">
-                                <i className="fas fa-thumbtack mr-2 text-muted"></i>
-                                Tasks
-                            </Link>
-                            <div className="dropdown-divider"></div>
-                            <Link className="dropdown-item py-0  pl-2" to="/username/goals">
+                            
+                            <Link className="dropdown-item py-0  pl-2" to={`/${currentUserInfo.id}/goals`}>
                                 <i className="fas fa-bullseye mr-2 text-muted"></i>
                                 Goals
                             </Link>
-                            <div className="dropdown-divider"></div> */}
+                            <div className="dropdown-divider"></div>
                             <Link className="dropdown-item py-0 pl-2" to={`/${currentUserInfo.id}/account`}>
                                 <i className="fas fa-cog mr-2 text-muted"></i>
                                 Account
                             </Link>
+
+                            {currentUserInfo.manages.length > 0 &&
+                            <>
+                            <div className="dropdown-divider"></div>
+                            <Link className="dropdown-item py-0 pl-2" to="/managers-panel">
+                                <i className="fas fa-id-badge mr-2 text-muted"></i>
+                                Managers Panel
+                            </Link>
+                            </>
+                            }
                             
                             {currentUserInfo.admin &&
                             <>

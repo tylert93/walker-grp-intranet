@@ -49,7 +49,7 @@ export const AuthProvider = ({children}) => {
                     email: '-',
                     mobile: '-'
                 },
-                manager:'-',
+                manager:'None',
                 manages:[],
                 name: name,
                 roleTitle: '-',
