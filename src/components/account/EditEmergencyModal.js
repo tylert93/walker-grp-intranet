@@ -42,7 +42,7 @@ const EditEmergencyModal = () => {
 
     const updatePersonal = () => {
 
-        db.collection('users').doc(currentUser.email)
+        db.collection('users').doc(currentUserInfo.id)
         .update({
             "emergencyContact.name":name,
             "emergencyContact.mobile":mobile,

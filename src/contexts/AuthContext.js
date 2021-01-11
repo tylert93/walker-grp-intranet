@@ -32,9 +32,8 @@ export const AuthProvider = ({children}) => {
 
     const createUser = (email, name, admin) => {
 
-        db.collection('users').doc(email)
-            .set({
-                avatar: 'https://firebasestorage.googleapis.com/v0/b/wg-intranet.appspot.com/o/avatars%2Ftom.tyler%40walkergrp.co.uk?alt=media&token=1666db53-699f-47b3-8d05-fb3fdeced3bf',
+        db.collection('users').add({
+                avatar: 'https://firebasestorage.googleapis.com/v0/b/wg-intranet.appspot.com/o/avatars%2Favatar.jpg?alt=media&token=338d869a-63a1-45a1-8b61-83c4d259eaf4',
                 admin: admin,
                 contactInfo: {
                     direct: '-',
@@ -61,7 +60,7 @@ export const AuthProvider = ({children}) => {
     const updateCurrentUserInfo = async () => {
 
         try{
-            const fetchUser = await db.collection('users').doc(currentUser.email).get()
+            const fetchUser = await db.collection('users').doc(currentUserInfo.id).get()
             let values = fetchUser.data()
             values.id = fetchUser.id
             setCurrentUserInfo(values)
@@ -78,12 +77,14 @@ export const AuthProvider = ({children}) => {
              setCurrentUser(user)
              setLoading(false)
              
-            db.collection('users').doc(user.email)
+            db.collection('users').where("email", "==", user.email)
                 .get()
-                .then(doc => {
-                    let values = doc.data()
-                    values.id = doc.id 
-                   setCurrentUserInfo(values)
+                .then(querySnapshot => {
+                    querySnapshot.forEach(doc => {
+                        let values = doc.data()
+                        values.id = doc.id 
+                       setCurrentUserInfo(values)
+                    }) 
                 })
                 .catch(error => {
                     console.log(error)

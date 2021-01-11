@@ -13,7 +13,7 @@ const AdminPanelIndex = () => {
 
     useEffect(() => {
 
-        db.collection('users').get()
+        db.collection('users').orderBy("name").get()
         .then(querySnapshot => {
             let usersArray =[]
             querySnapshot.forEach(doc => {

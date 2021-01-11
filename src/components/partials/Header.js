@@ -41,7 +41,9 @@ const Header = () => {
                         <a className="nav-link dropdown-toggle d-flex align-items-center" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
                             <div className="mr-2" style={{width: '40px'}}>
+                                {currentUserInfo.avatar &&
                                 <AvatarContainer url={currentUserInfo.avatar} />
+                                }
                             </div>
                             <span>{currentUserInfo.name}</span>
                                 

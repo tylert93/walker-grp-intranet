@@ -3,6 +3,7 @@ import { Spinner, Card, Accordion, Button } from 'react-bootstrap'
 import Wrapper from '../../partials/Wrapper';
 import ViewHeader from '../../misc/ViewHeader';
 import { db } from '../../../services/firebase';
+import { v4 } from 'uuid';
 import '../../../css/tools/addressBook.css';
 
 const AddressBook = () => {
@@ -28,7 +29,7 @@ const AddressBook = () => {
 
     useEffect(() => {
 
-        db.collection('users').get()
+        db.collection('users').orderBy("name").get()
         .then(querySnapshot => {
             let usersArray =[]
             querySnapshot.forEach(doc => {
@@ -73,7 +74,7 @@ const AddressBook = () => {
 
                             {users.map((user, index) => {
                                 return(
-                                <Card>
+                                <Card key={v4()}>
 
                                     <Card.Header>
                                         <Accordion.Toggle className="text-dark" as={Button} variant="link" eventKey={index + 1} >

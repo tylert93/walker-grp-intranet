@@ -32,17 +32,15 @@ const EditPersonalModal = () => {
             await fileRef.put(file)
             let imgUrl = await fileRef.getDownloadURL()
 
-            await db.collection('users').doc(currentUser.email)
-            .update({
-                avatar: imgUrl
-            })
-            .then(
+            try{
+                await db.collection('users').doc(currentUserInfo.id).update({
+                    avatar: imgUrl
+                })
                 updateCurrentUserInfo()
-            )
-            .catch(error => {
+            }catch(error){
                 toast.error("Failed to update info", {autoClose:false, position: toast.POSITION.TOP_CENTER})
                 console.log(error)
-            })
+            }
         }
 
         handleClose()

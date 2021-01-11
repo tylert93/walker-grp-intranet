@@ -57,7 +57,7 @@ const AdminPanelEdit = (props) => {
 
     const fetchAllUsers = async () => {
         try{
-            const fetchUsers = await db.collection('users').get()
+            const fetchUsers = await db.collection('users').orderBy("name").get()
             let userArray = []
             fetchUsers.forEach(doc => {
                 userArray.push(doc.data().name)

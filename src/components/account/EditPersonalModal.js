@@ -50,7 +50,7 @@ const EditPersonalModal = () => {
 
     const updatePersonal = () => {
 
-        db.collection('users').doc(currentUser.email)
+        db.collection('users').doc(currentUserInfo.id)
         .update({
             "contactInfo.direct":direct,
             "contactInfo.ext":ext,
@@ -72,7 +72,7 @@ const EditPersonalModal = () => {
     return (
       <>
         <Button variant="primary" size="sm" onClick={handleShow}>
-            <i class="fas fa-pencil-alt mr-2"></i>
+            <i className="fas fa-pencil-alt mr-2"></i>
             Edit
         </Button>
   
