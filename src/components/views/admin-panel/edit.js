@@ -209,7 +209,7 @@ const AdminPanelEdit = (props) => {
 
         if(user){
             return(
-                <Form onSubmit={(e) => {handleSubmit(e)}}>
+                <Form className="form-container mx-auto" onSubmit={(e) => {handleSubmit(e)}}>
 
                     <h4 className="mb-4">{user.name} Account Information</h4>
 
@@ -279,7 +279,10 @@ const AdminPanelEdit = (props) => {
                         <Switch className="d-inline ml-3" large onChange={changeAdmin} checked={admin} innerLabelChecked="yes" innerLabel="no" />
                     </Form.Group>
 
-                    <Button disabled={loading} className="w-100 sign-up-btn" onClick={handleSubmit} >Update</Button>
+                    <div className="d-flex justify-content-end">
+                        <Button disabled={loading} onClick={handleSubmit} >Update</Button>
+                    </div>        
+                    
 
                 </Form>
             )

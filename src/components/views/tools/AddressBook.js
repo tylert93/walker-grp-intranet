@@ -21,7 +21,7 @@ const AddressBook = () => {
 
         const filtered = users.filter(contact => {
             return contact.name.toLowerCase().includes(input.toLowerCase())
-           })
+        })
 
         setFilteredList(filtered);
 

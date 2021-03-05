@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
 import { useAuth } from '../../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import logo from '../../../images/walker-grp-ltd-logo-light.svg';
 
@@ -45,6 +46,8 @@ const handleSubmit = async (e) => {
                             <Button disabled={loading} className="w-100 sign-up-btn" type="submit" >Reset</Button>
 
                         </Form>
+
+                        <div className="text-center mt-3">Go back to the homepage <Link to="/">here</Link></div>
 
                     </Card.Body>
                 </Card>

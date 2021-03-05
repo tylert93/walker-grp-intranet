@@ -116,7 +116,9 @@ const UpdateGoal = (props) => {
 
                     </form>
 
-                    <button className="btn btn-primary" onClick={updateGoal}>Submit</button>
+                    <div className="d-flex justify-content-end">
+                        <button className="btn btn-primary" onClick={updateGoal}>Submit</button>
+                    </div>
 
                 </div>
 
